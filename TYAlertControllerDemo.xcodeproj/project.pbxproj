@@ -14,6 +14,10 @@
 		D358542F1B9532D700B5FA1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D358542E1B9532D700B5FA1F /* Images.xcassets */; };
 		D35854321B9532D700B5FA1F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D35854301B9532D700B5FA1F /* LaunchScreen.xib */; };
 		D358543E1B9532D700B5FA1F /* TYAlertControllerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D358543D1B9532D700B5FA1F /* TYAlertControllerDemoTests.m */; };
+		D35854A61B953FC300B5FA1F /* TYAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854A51B953FC300B5FA1F /* TYAlertController.m */; };
+		D35854A91B95973000B5FA1F /* TYAlertFadeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854A81B95973000B5FA1F /* TYAlertFadeAnimation.m */; };
+		D35854B51B95B7BB00B5FA1F /* TYBaseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854B41B95B7BB00B5FA1F /* TYBaseAnimation.m */; };
+		D35854B81B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854B71B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,13 @@
 		D35854371B9532D700B5FA1F /* TYAlertControllerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TYAlertControllerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D358543C1B9532D700B5FA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D358543D1B9532D700B5FA1F /* TYAlertControllerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAlertControllerDemoTests.m; sourceTree = "<group>"; };
+		D35854A41B953FC300B5FA1F /* TYAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAlertController.h; sourceTree = "<group>"; };
+		D35854A51B953FC300B5FA1F /* TYAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAlertController.m; sourceTree = "<group>"; };
+		D35854A71B95973000B5FA1F /* TYAlertFadeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAlertFadeAnimation.h; sourceTree = "<group>"; };
+		D35854A81B95973000B5FA1F /* TYAlertFadeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAlertFadeAnimation.m; sourceTree = "<group>"; };
+		D35854B31B95B7BB00B5FA1F /* TYBaseAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBaseAnimation.h; sourceTree = "<group>"; };
+		D35854B41B95B7BB00B5FA1F /* TYBaseAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBaseAnimation.m; sourceTree = "<group>"; };
+		D35854B71B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TYAlertController+TransitionAnimate.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +92,7 @@
 		D35854201B9532D700B5FA1F /* TYAlertControllerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D35854A31B953F3D00B5FA1F /* TYAlertController */,
 				D35854251B9532D700B5FA1F /* AppDelegate.h */,
 				D35854261B9532D700B5FA1F /* AppDelegate.m */,
 				D35854281B9532D700B5FA1F /* ViewController.h */,
@@ -117,6 +129,20 @@
 				D358543C1B9532D700B5FA1F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D35854A31B953F3D00B5FA1F /* TYAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				D35854A41B953FC300B5FA1F /* TYAlertController.h */,
+				D35854A51B953FC300B5FA1F /* TYAlertController.m */,
+				D35854B71B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m */,
+				D35854B31B95B7BB00B5FA1F /* TYBaseAnimation.h */,
+				D35854B41B95B7BB00B5FA1F /* TYBaseAnimation.m */,
+				D35854A71B95973000B5FA1F /* TYAlertFadeAnimation.h */,
+				D35854A81B95973000B5FA1F /* TYAlertFadeAnimation.m */,
+			);
+			path = TYAlertController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,8 +246,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D358542A1B9532D700B5FA1F /* ViewController.m in Sources */,
+				D35854B51B95B7BB00B5FA1F /* TYBaseAnimation.m in Sources */,
 				D35854271B9532D700B5FA1F /* AppDelegate.m in Sources */,
 				D35854241B9532D700B5FA1F /* main.m in Sources */,
+				D35854A61B953FC300B5FA1F /* TYAlertController.m in Sources */,
+				D35854B81B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m in Sources */,
+				D35854A91B95973000B5FA1F /* TYAlertFadeAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +380,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TYAlertControllerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -360,6 +391,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TYAlertControllerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -418,6 +450,7 @@
 				D35854431B9532D700B5FA1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D35854441B9532D700B5FA1F /* Build configuration list for PBXNativeTarget "TYAlertControllerDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +459,7 @@
 				D35854461B9532D700B5FA1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
