@@ -13,6 +13,11 @@
 @property (nonatomic, strong) UIView *alertView;
 
 @property (nonatomic, assign) TYAlertControllerStyle preferredStyle;
+
+@property (nonatomic, assign) TYAlertTransitionAnimation transitionAnimation;
+
+@property (nonatomic, assign) Class transitionAnimationClass;
+
 @end
 
 @implementation TYAlertController
@@ -43,18 +48,30 @@
     return self;
 }
 
-- (instancetype)initWithAlertView:(UIView *)alertView preferredStyle:(TYAlertControllerStyle)preferredStyle
+- (instancetype)initWithAlertView:(UIView *)alertView preferredStyle:(TYAlertControllerStyle)preferredStyle transitionAnimation:(TYAlertTransitionAnimation)transitionAnimation transitionAnimationClass:(Class)transitionAnimationClass
 {
     if (self = [self initWithNibName:nil bundle:nil]) {
         _alertView = alertView;
         _preferredStyle = preferredStyle;
+        _transitionAnimation = transitionAnimation;
+        _transitionAnimationClass = transitionAnimationClass;
     }
     return self;
 }
 
 + (instancetype)alertControllerWithAlertView:(UIView *)alertView preferredStyle:(TYAlertControllerStyle)preferredStyle
 {
-    return [[self alloc]initWithAlertView:alertView preferredStyle:preferredStyle];
+    return [[self alloc]initWithAlertView:alertView preferredStyle:preferredStyle transitionAnimation:TYAlertTransitionAnimationFade transitionAnimationClass:nil];
+}
+
++ (instancetype)alertControllerWithAlertView:(UIView *)alertView preferredStyle:(TYAlertControllerStyle)preferredStyle transitionAnimation:(TYAlertTransitionAnimation)transitionAnimation
+{
+    return [[self alloc]initWithAlertView:alertView preferredStyle:preferredStyle transitionAnimation:transitionAnimation transitionAnimationClass:nil];
+}
+
++ (instancetype)alertControllerWithAlertView:(UIView *)alertView preferredStyle:(TYAlertControllerStyle)preferredStyle transitionAnimationClass:(Class)transitionAnimationClass
+{
+    return [[self alloc]initWithAlertView:alertView preferredStyle:preferredStyle transitionAnimation:TYAlertTransitionAnimationCustom transitionAnimationClass:transitionAnimationClass];
 }
 
 #pragma mark - life cycle

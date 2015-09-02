@@ -16,14 +16,30 @@
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
-    return [TYAlertScaleFadeAnimation alertAnimationIsPresenting:YES];
-    //return [TYAlertFadeAnimation alertAnimationIsPresenting:YES];
+    switch (self.transitionAnimation) {
+        case TYAlertTransitionAnimationFade:
+            return [TYAlertFadeAnimation alertAnimationIsPresenting:YES];
+        case TYAlertTransitionAnimationScaleFade:
+            return [TYAlertScaleFadeAnimation alertAnimationIsPresenting:YES];
+        case TYAlertTransitionAnimationCustom:
+            return [self.class alertAnimationIsPresenting:YES preferredStyle:self.preferredStyle];
+        default:
+            return nil;
+    }
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
 {
-    return [TYAlertScaleFadeAnimation alertAnimationIsPresenting:NO];
-    //return [TYAlertFadeAnimation alertAnimationIsPresenting:NO];
+    switch (self.transitionAnimation) {
+        case TYAlertTransitionAnimationFade:
+            return [TYAlertFadeAnimation alertAnimationIsPresenting:NO];
+        case TYAlertTransitionAnimationScaleFade:
+            return [TYAlertScaleFadeAnimation alertAnimationIsPresenting:NO];
+        case TYAlertTransitionAnimationCustom:
+            return [self.class alertAnimationIsPresenting:NO preferredStyle:self.preferredStyle];
+        default:
+            return nil;
+    }
 }
 
 @end

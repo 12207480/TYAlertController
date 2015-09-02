@@ -9,15 +9,26 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, TYAlertControllerStyle) {
-    TYAlertControllerStyleActionSheet = 0,
-    TYAlertControllerStyleAlert
+    TYAlertControllerStyleAlert = 0,
+    TYAlertControllerStyleActionSheet
 };
+
+typedef NS_ENUM(NSInteger, TYAlertTransitionAnimation) {
+    TYAlertTransitionAnimationFade = 0,
+    TYAlertTransitionAnimationScaleFade,
+    TYAlertTransitionAnimationCustom
+};
+
 
 @interface TYAlertController : UIViewController
 
 @property (nonatomic, strong, readonly) UIView *alertView;
 
 @property (nonatomic, assign, readonly) TYAlertControllerStyle preferredStyle;
+
+@property (nonatomic, assign, readonly) TYAlertTransitionAnimation transitionAnimation;
+
+@property (nonatomic, assign, readonly) Class transitionAnimationClass;
 
 @property (nonatomic, assign) BOOL backgoundTapEnable;  // default YES
 
@@ -26,6 +37,10 @@ typedef NS_ENUM(NSInteger, TYAlertControllerStyle) {
 @property (nonatomic, copy) void (^dismissComplete)(void);
 
 + (instancetype)alertControllerWithAlertView:(UIView *)alertView preferredStyle:(TYAlertControllerStyle)preferredStyle;
+
++ (instancetype)alertControllerWithAlertView:(UIView *)alertView preferredStyle:(TYAlertControllerStyle)preferredStyle transitionAnimation:(TYAlertTransitionAnimation)transitionAnimation;
+
++ (instancetype)alertControllerWithAlertView:(UIView *)alertView preferredStyle:(TYAlertControllerStyle)preferredStyle transitionAnimationClass:(Class)transitionAnimationClass;
 
 @end
 

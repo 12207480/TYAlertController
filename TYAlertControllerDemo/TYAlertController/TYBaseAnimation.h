@@ -23,6 +23,10 @@
 //  return nil;
 + (instancetype)alertAnimationIsPresenting:(BOOL)isPresenting preferredStyle:(TYAlertControllerStyle) preferredStyle;
 
+
+// override transiton time
+- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext;
+
 // override present
 - (void)presentAnimateTransition:(id<UIViewControllerContextTransitioning>)transitionContext;
 
