@@ -18,6 +18,7 @@
 		D35854A91B95973000B5FA1F /* TYAlertFadeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854A81B95973000B5FA1F /* TYAlertFadeAnimation.m */; };
 		D35854B51B95B7BB00B5FA1F /* TYBaseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854B41B95B7BB00B5FA1F /* TYBaseAnimation.m */; };
 		D35854B81B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854B71B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m */; };
+		D395FE1F1B96C7F1000F72F7 /* TYAlertScaleFadeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D395FE1E1B96C7F1000F72F7 /* TYAlertScaleFadeAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		D35854B31B95B7BB00B5FA1F /* TYBaseAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBaseAnimation.h; sourceTree = "<group>"; };
 		D35854B41B95B7BB00B5FA1F /* TYBaseAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBaseAnimation.m; sourceTree = "<group>"; };
 		D35854B71B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TYAlertController+TransitionAnimate.m"; sourceTree = "<group>"; };
+		D395FE1D1B96C7F1000F72F7 /* TYAlertScaleFadeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAlertScaleFadeAnimation.h; sourceTree = "<group>"; };
+		D395FE1E1B96C7F1000F72F7 /* TYAlertScaleFadeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAlertScaleFadeAnimation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,8 @@
 				D35854B41B95B7BB00B5FA1F /* TYBaseAnimation.m */,
 				D35854A71B95973000B5FA1F /* TYAlertFadeAnimation.h */,
 				D35854A81B95973000B5FA1F /* TYAlertFadeAnimation.m */,
+				D395FE1D1B96C7F1000F72F7 /* TYAlertScaleFadeAnimation.h */,
+				D395FE1E1B96C7F1000F72F7 /* TYAlertScaleFadeAnimation.m */,
 			);
 			path = TYAlertController;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				D358542A1B9532D700B5FA1F /* ViewController.m in Sources */,
 				D35854B51B95B7BB00B5FA1F /* TYBaseAnimation.m in Sources */,
 				D35854271B9532D700B5FA1F /* AppDelegate.m in Sources */,
+				D395FE1F1B96C7F1000F72F7 /* TYAlertScaleFadeAnimation.m in Sources */,
 				D35854241B9532D700B5FA1F /* main.m in Sources */,
 				D35854A61B953FC300B5FA1F /* TYAlertController.m in Sources */,
 				D35854B81B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m in Sources */,
