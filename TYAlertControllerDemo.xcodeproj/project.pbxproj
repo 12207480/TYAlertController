@@ -137,9 +137,18 @@
 		D35854A31B953F3D00B5FA1F /* TYAlertController */ = {
 			isa = PBXGroup;
 			children = (
+				D386E9701B9C15E800321875 /* AlertAimations */,
+				D386E9711B9C162400321875 /* AlertViews */,
 				D35854A41B953FC300B5FA1F /* TYAlertController.h */,
 				D35854A51B953FC300B5FA1F /* TYAlertController.m */,
 				D35854B71B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m */,
+			);
+			path = TYAlertController;
+			sourceTree = "<group>";
+		};
+		D386E9701B9C15E800321875 /* AlertAimations */ = {
+			isa = PBXGroup;
+			children = (
 				D35854B31B95B7BB00B5FA1F /* TYBaseAnimation.h */,
 				D35854B41B95B7BB00B5FA1F /* TYBaseAnimation.m */,
 				D35854A71B95973000B5FA1F /* TYAlertFadeAnimation.h */,
@@ -147,7 +156,14 @@
 				D395FE1D1B96C7F1000F72F7 /* TYAlertScaleFadeAnimation.h */,
 				D395FE1E1B96C7F1000F72F7 /* TYAlertScaleFadeAnimation.m */,
 			);
-			path = TYAlertController;
+			name = AlertAimations;
+			sourceTree = "<group>";
+		};
+		D386E9711B9C162400321875 /* AlertViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AlertViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
