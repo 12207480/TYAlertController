@@ -35,6 +35,9 @@
     [alertView addAction:[TYAlertAction actionWithTitle:@"取消" style:TYAlertActionStyleCancle handler:^(TYAlertAction *action) {
         
     }]];
+    [alertView addAction:[TYAlertAction actionWithTitle:@"默认" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
+        
+    }]];
     TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleAlert];
     [self presentViewController:alertController animated:YES completion:nil];
 }

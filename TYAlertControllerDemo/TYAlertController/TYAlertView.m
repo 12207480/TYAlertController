@@ -225,7 +225,24 @@
         [_buttonContentView addConstarintWithView:button topView:_buttonContentView leftView:nil bottomView:nil rightView:_buttonContentView edageInset:UIEdgeInsetsZero];
         [_buttonContentView addConstarintWithLeftView:firstButton toRightView:button constarint:_textLabelSpace];
         [_buttonContentView addConstarintEqualWithView:button widthToView:firstButton heightToView:firstButton];
-    }}
+    }else {
+        if (_buttons.count == 3) {
+            UIButton *firstBtn = _buttons[0];
+            UIButton *secondBtn = _buttons[1];
+            [_buttonContentView removeConstraintWithView:firstBtn attribte:NSLayoutAttributeRight];
+            [_buttonContentView removeConstraintWithView:firstBtn attribte:NSLayoutAttributeBottom];
+            [_buttonContentView removeConstraintWithView:secondBtn attribte:NSLayoutAttributeTop];
+            [_buttonContentView addConstarintWithView:firstBtn topView:nil leftView:nil bottomView:0 rightView:_buttonContentView edageInset:UIEdgeInsetsZero];
+            [_buttonContentView addConstarintWithTopView:firstBtn toBottomView:secondBtn constarint:_textLabelSpace];
+            
+        }
+        UIButton *lastSecondBtn = _buttons[_buttons.count-2];
+        [_buttonContentView removeConstraintWithView:lastSecondBtn attribte:NSLayoutAttributeBottom];
+        [_buttonContentView addConstarintWithTopView:lastSecondBtn toBottomView:button constarint:_textLabelSpace];
+        [_buttonContentView addConstarintWithView:button topView:nil leftView:_buttonContentView bottomView:_buttonContentView rightView:nil edageInset:UIEdgeInsetsZero];
+        [_buttonContentView addConstarintEqualWithView:button widthToView:lastSecondBtn heightToView:lastSecondBtn];
+    }
+}
 
 #pragma mark - action
 
