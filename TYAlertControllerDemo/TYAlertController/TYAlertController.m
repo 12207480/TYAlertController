@@ -86,6 +86,11 @@
     [self configureAlertView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 - (void)addSingleTapGesture
 {
     if (!self.backgoundTapEnable) {
@@ -109,7 +114,8 @@
     self.definesPresentationContext = YES;
     self.modalPresentationStyle = UIModalPresentationCustom;
     self.transitioningDelegate = self;
-    self.backgoundTapEnable = YES;
+    _backgoundTapEnable = YES;
+    _alertViewEdging = 15;
 }
 
 - (void)configureAlertView
@@ -118,6 +124,7 @@
         NSLog(@"%@: alertView is nil",NSStringFromClass([self class]));
         return;
     }
+    _alertView.userInteractionEnabled = YES;
     [self.view addSubview:_alertView];
     _alertView.translatesAutoresizingMaskIntoConstraints = NO;
     switch (_preferredStyle) {
@@ -140,12 +147,32 @@
     NSLayoutConstraint *alertViewCenterXConstraint = [NSLayoutConstraint constraintWithItem:_alertView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
     
     // top Y
-    CGFloat alertViewTopY = _alertViewTopY > 0 ? _alertViewTopY : (CGRectGetHeight(self.view.frame) - CGRectGetHeight(_alertView.frame))/2;
-    NSLayoutConstraint *alertViewTopYConstraint = [NSLayoutConstraint constraintWithItem:_alertView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:alertViewTopY];
+    NSLayoutConstraint *alertViewTopYConstraint = nil;
+    if (_alertViewOriginY > 0) {
+        alertViewTopYConstraint = [NSLayoutConstraint constraintWithItem:_alertView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:_alertViewOriginY];
+    }else {
+        alertViewTopYConstraint = [NSLayoutConstraint constraintWithItem:_alertView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
+    }
     
-    [_alertView addConstraint:[NSLayoutConstraint constraintWithItem:_alertView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:CGRectGetHeight(_alertView.frame)]];
-    
-    [_alertView addConstraint:[NSLayoutConstraint constraintWithItem:_alertView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:CGRectGetWidth(_alertView.frame)]];
+    if (!CGSizeEqualToSize(_alertView.frame.size,CGSizeZero)) {
+        // height
+        [_alertView addConstraint:[NSLayoutConstraint constraintWithItem:_alertView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:CGRectGetHeight(_alertView.frame)]];
+        // width
+        [_alertView addConstraint:[NSLayoutConstraint constraintWithItem:_alertView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:CGRectGetWidth(_alertView.frame)]];
+    }else {
+        BOOL findAlertViewWidthConstraint = NO;
+        for (NSLayoutConstraint *constraint in _alertView.constraints) {
+            if (constraint.firstAttribute == NSLayoutAttributeWidth) {
+                findAlertViewWidthConstraint = YES;
+                break;
+            }
+        }
+        
+        if (!findAlertViewWidthConstraint) {
+            // width
+            [_alertView addConstraint:[NSLayoutConstraint constraintWithItem:_alertView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:CGRectGetWidth(self.view.frame)-2*_alertViewEdging]];
+        }
+    }
     
     [self.view addConstraints:@[alertViewCenterXConstraint,alertViewTopYConstraint]];
 }
@@ -154,14 +181,17 @@
 {
     // center X
     NSLayoutConstraint *alertViewCenterXConstraint = [NSLayoutConstraint constraintWithItem:_alertView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
-    
+    // Bottom
     NSLayoutConstraint *alertViewButtomYConstraint = [NSLayoutConstraint constraintWithItem:_alertView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
-    
+    // left
     NSLayoutConstraint *alertViewLeftConstraint = [NSLayoutConstraint constraintWithItem:_alertView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
-    
+    // right
     NSLayoutConstraint *alertViewRightConstraint = [NSLayoutConstraint constraintWithItem:_alertView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
     
-    [_alertView addConstraint:[NSLayoutConstraint constraintWithItem:_alertView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:CGRectGetHeight(_alertView.frame)]];
+    if (CGRectGetHeight(_alertView.frame) > 0) {
+        // height
+        [_alertView addConstraint:[NSLayoutConstraint constraintWithItem:_alertView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:CGRectGetHeight(_alertView.frame)]];
+    }
     
     [self.view addConstraints:@[alertViewCenterXConstraint,alertViewButtomYConstraint,alertViewLeftConstraint,alertViewRightConstraint]];
 }

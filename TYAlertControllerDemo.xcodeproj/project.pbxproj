@@ -18,7 +18,10 @@
 		D35854A91B95973000B5FA1F /* TYAlertFadeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854A81B95973000B5FA1F /* TYAlertFadeAnimation.m */; };
 		D35854B51B95B7BB00B5FA1F /* TYBaseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854B41B95B7BB00B5FA1F /* TYBaseAnimation.m */; };
 		D35854B81B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854B71B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m */; };
+		D37A91E11B9E7B6000C6661A /* UIView+TYAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D37A91E01B9E7B6000C6661A /* UIView+TYAutoLayout.m */; };
 		D395FE1F1B96C7F1000F72F7 /* TYAlertScaleFadeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D395FE1E1B96C7F1000F72F7 /* TYAlertScaleFadeAnimation.m */; };
+		D3C1A9731B9D16D5009738B0 /* UIView+TYAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1A9721B9D16D5009738B0 /* UIView+TYAlertView.m */; };
+		D3C1A9761B9D1A83009738B0 /* TYAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1A9751B9D1A83009738B0 /* TYAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +55,14 @@
 		D35854B31B95B7BB00B5FA1F /* TYBaseAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBaseAnimation.h; sourceTree = "<group>"; };
 		D35854B41B95B7BB00B5FA1F /* TYBaseAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBaseAnimation.m; sourceTree = "<group>"; };
 		D35854B71B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TYAlertController+TransitionAnimate.m"; sourceTree = "<group>"; };
+		D37A91DF1B9E7B6000C6661A /* UIView+TYAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TYAutoLayout.h"; sourceTree = "<group>"; };
+		D37A91E01B9E7B6000C6661A /* UIView+TYAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TYAutoLayout.m"; sourceTree = "<group>"; };
 		D395FE1D1B96C7F1000F72F7 /* TYAlertScaleFadeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAlertScaleFadeAnimation.h; sourceTree = "<group>"; };
 		D395FE1E1B96C7F1000F72F7 /* TYAlertScaleFadeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAlertScaleFadeAnimation.m; sourceTree = "<group>"; };
+		D3C1A9711B9D16D5009738B0 /* UIView+TYAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TYAlertView.h"; sourceTree = "<group>"; };
+		D3C1A9721B9D16D5009738B0 /* UIView+TYAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TYAlertView.m"; sourceTree = "<group>"; };
+		D3C1A9741B9D1A83009738B0 /* TYAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAlertView.h; sourceTree = "<group>"; };
+		D3C1A9751B9D1A83009738B0 /* TYAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +171,12 @@
 		D386E9711B9C162400321875 /* AlertViews */ = {
 			isa = PBXGroup;
 			children = (
+				D3C1A9711B9D16D5009738B0 /* UIView+TYAlertView.h */,
+				D3C1A9721B9D16D5009738B0 /* UIView+TYAlertView.m */,
+				D37A91DF1B9E7B6000C6661A /* UIView+TYAutoLayout.h */,
+				D37A91E01B9E7B6000C6661A /* UIView+TYAutoLayout.m */,
+				D3C1A9741B9D1A83009738B0 /* TYAlertView.h */,
+				D3C1A9751B9D1A83009738B0 /* TYAlertView.m */,
 			);
 			name = AlertViews;
 			sourceTree = "<group>";
@@ -268,7 +283,10 @@
 			files = (
 				D358542A1B9532D700B5FA1F /* ViewController.m in Sources */,
 				D35854B51B95B7BB00B5FA1F /* TYBaseAnimation.m in Sources */,
+				D3C1A9761B9D1A83009738B0 /* TYAlertView.m in Sources */,
+				D37A91E11B9E7B6000C6661A /* UIView+TYAutoLayout.m in Sources */,
 				D35854271B9532D700B5FA1F /* AppDelegate.m in Sources */,
+				D3C1A9731B9D16D5009738B0 /* UIView+TYAlertView.m in Sources */,
 				D395FE1F1B96C7F1000F72F7 /* TYAlertScaleFadeAnimation.m in Sources */,
 				D35854241B9532D700B5FA1F /* main.m in Sources */,
 				D35854A61B953FC300B5FA1F /* TYAlertController.m in Sources */,

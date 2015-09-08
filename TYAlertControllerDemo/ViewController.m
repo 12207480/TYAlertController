@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "TYAlertController.h"
+#import "TYAlertView.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    //UIAlertController
 }
 
 
@@ -25,14 +27,24 @@
     
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 300, 120)];
     view.backgroundColor = [UIColor blueColor];
-    TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:view preferredStyle:TYAlertControllerStyleAlert];
+    TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"A message should be a short, complete sentence."];
+    alertView.backgroundColor = [UIColor whiteColor];
+    [alertView addAction:[TYAlertAction actionWithTitle:@"确定" style:TYAlertActionStyleDestructive handler:^(TYAlertAction *action) {
+        
+    }]];
+    [alertView addAction:[TYAlertAction actionWithTitle:@"取消" style:TYAlertActionStyleCancle handler:^(TYAlertAction *action) {
+        
+    }]];
+    TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleAlert];
     [self presentViewController:alertController animated:YES completion:nil];
 }
 - (IBAction)showActionSheet:(id)sender {
     
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 300, 120)];
     view.backgroundColor = [UIColor blueColor];
-    TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:view preferredStyle:TYAlertControllerStyleActionSheet];
+    TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"A message should be a short, complete sentence."];
+    alertView.backgroundColor = [UIColor whiteColor];
+    TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleActionSheet];
     [self presentViewController:alertController animated:YES completion:nil];
 }
 

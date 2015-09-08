@@ -32,9 +32,12 @@ typedef NS_ENUM(NSInteger, TYAlertTransitionAnimation) {
 
 @property (nonatomic, assign) BOOL backgoundTapEnable;  // default YES
 
-@property (nonatomic, assign) CGFloat alertViewTopY;  // default center Y
+@property (nonatomic, assign) CGFloat alertViewOriginY;  // default center Y
 
-@property (nonatomic, copy) void (^dismissComplete)(void);
+@property (nonatomic, assign) CGFloat alertViewEdging; // only alertStyle, when width frame equal to 0,or no width constraint ,this proprty will use, default to 15 
+
+@property (nonatomic, copy) void (^dismissComplete)(void); // dismiss controller completed block
+
 
 + (instancetype)alertControllerWithAlertView:(UIView *)alertView preferredStyle:(TYAlertControllerStyle)preferredStyle;
 
