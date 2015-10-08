@@ -12,6 +12,7 @@
 @interface TYAlertAction ()
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, assign) TYAlertActionStyle style;
+@property (nonatomic, copy) void (^handler)(TYAlertAction *);
 @end
 
 @implementation TYAlertAction
@@ -26,6 +27,7 @@
     if (self = [super init]) {
         _title = title;
         _style = style;
+        _enabled = YES;
         
     }
     return self;
@@ -123,6 +125,7 @@
     _textFeildContentView = textFeildContentView;
     
     UIView *buttonContentView = [[UIView alloc]init];
+    buttonContentView.userInteractionEnabled = YES;
     [self addSubview:buttonContentView];
     _buttonContentView = buttonContentView;
 }
@@ -169,11 +172,7 @@
     // textContentView
     _textContentView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:_textContentView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:_contentViewSpace]];
-    
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:_textContentView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:_contentViewEdge]];
-    
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:_textContentView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:-_contentViewEdge]];
+    [self addConstarintWithView:_textContentView topView:self leftView:self bottomView:nil rightView:self edageInset:UIEdgeInsetsMake(_contentViewEdge, _contentViewEdge, 0, -_contentViewEdge)];
     
 //        // textFeildContentView
 //        _textFeildContentView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -184,33 +183,21 @@
 //        [self addConstraint:[NSLayoutConstraint constraintWithItem:_textFeildContentView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
     //
         // buttonContentView
-        _buttonContentView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:_buttonContentView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_textContentView attribute:NSLayoutAttributeBottom multiplier:1 constant:_contentViewSpace]];
+    _buttonContentView.translatesAutoresizingMaskIntoConstraints = NO;
     
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:_buttonContentView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:_contentViewEdge]];
+    [self addConstarintWithTopView:_textContentView toBottomView:_buttonContentView constarint:_contentViewSpace];
     
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:_buttonContentView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:-_contentViewEdge]];
-    
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:_buttonContentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:-_contentViewSpace]];
+    [self addConstarintWithView:_buttonContentView topView:nil leftView:self bottomView:self rightView:self edageInset:UIEdgeInsetsMake(0, _contentViewEdge, -_contentViewEdge, -_contentViewEdge)];
 }
 
 - (void)layoutTextLabels
 {
     _titleLable.translatesAutoresizingMaskIntoConstraints = NO;
-    [_textContentView addConstraint:[NSLayoutConstraint constraintWithItem:_titleLable attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_textContentView attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
-    
-    [_textContentView addConstraint:[NSLayoutConstraint constraintWithItem:_titleLable attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_textContentView attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
-    
-    [_textContentView addConstraint:[NSLayoutConstraint constraintWithItem:_titleLable attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_textContentView attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
+    [_textContentView addConstarintWithView:_titleLable topView:_textContentView leftView:_textContentView bottomView:nil rightView:_textContentView edageInset:UIEdgeInsetsZero];
     
     _messageLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [_textContentView addConstraint:[NSLayoutConstraint constraintWithItem:_messageLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_titleLable attribute:NSLayoutAttributeBottom multiplier:1 constant:_textLabelSpace]];
-    
-    [_textContentView addConstraint:[NSLayoutConstraint constraintWithItem:_messageLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_textContentView attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
-    
-    [_textContentView addConstraint:[NSLayoutConstraint constraintWithItem:_messageLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_textContentView attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
-    
-    [_textContentView addConstraint:[NSLayoutConstraint constraintWithItem:_messageLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_textContentView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+    [_textContentView addConstarintWithTopView:_titleLable toBottomView:_messageLabel constarint:_textLabelSpace];
+    [_textContentView addConstarintWithView:_messageLabel topView:nil leftView:_textContentView bottomView:_textContentView rightView:_textContentView edageInset:UIEdgeInsetsZero];
 }
 
 - (void)layoutButtons
@@ -248,7 +235,14 @@
 
 - (void)actionButtonClicked:(UIButton *)button
 {
+    NSLog(@"actionButtonClicked tag:%ld",button.tag);
+    TYAlertAction *action = _actions[button.tag - kButtonTagOffset];
     
+    if (action.handler) {
+        action.handler(action);
+    }
+    
+    [self.viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

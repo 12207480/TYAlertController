@@ -22,7 +22,7 @@
 {
     TYAlertController *alertController = (TYAlertController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
-    alertController.view.alpha = 0.0;
+    alertController.backgroundView.alpha = 0.0;
     
     switch (alertController.preferredStyle) {
         case TYAlertControllerStyleAlert:
@@ -41,7 +41,7 @@
     [containerView addSubview:alertController.view];
     
     [UIView animateWithDuration:0.25 animations:^{
-        alertController.view.alpha = 1.0;
+        alertController.backgroundView.alpha = 1.0;
         switch (alertController.preferredStyle) {
             case TYAlertControllerStyleAlert:
                 alertController.alertView.alpha = 1.0;
@@ -68,7 +68,7 @@
     TYAlertController *alertController = (TYAlertController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
     [UIView animateWithDuration:0.25 animations:^{
-        alertController.view.alpha = 0.0;
+        alertController.backgroundView.alpha = 0.0;
         switch (alertController.preferredStyle) {
             case TYAlertControllerStyleAlert:
                 alertController.alertView.alpha = 0.0;
