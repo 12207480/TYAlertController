@@ -43,6 +43,7 @@
 
 @end
 
+
 @interface TYAlertView ()
 
 // text content View
@@ -51,6 +52,8 @@
 @property (nonatomic, weak) UILabel *messageLabel;
 
 @property (nonatomic, weak) UIView *textFeildContentView;
+@property (nonatomic, weak) NSLayoutConstraint *textFeildTopConstraint;
+@property (nonatomic, strong) NSMutableArray *textFeilds;
 
 // button content View
 @property (nonatomic, weak) UIView *buttonContentView;
@@ -63,9 +66,13 @@
 
 @end
 
-@implementation TYAlertView
-
 #define kButtonTagOffset 1000
+#define KButtonHeight    44
+#define kTextFeildOffset 10000
+#define kTextFeildHeight 30
+#define kTextFeildBorderColor [UIColor colorWithRed:203/255.0 green:203/255.0 blue:203/255.0 alpha:1];
+
+@implementation TYAlertView
 
 #pragma mark - init
 
@@ -108,8 +115,11 @@
     _contentViewSpace = 15;
     _contentViewEdge = 12;
     _textLabelSpace = 6;
+    
     _buttons = [NSMutableArray array];
     _actions = [NSMutableArray array];
+    
+    _textFieldBorderColor = kTextFeildBorderColor;
 }
 
 #pragma mark - add contentview
@@ -165,6 +175,27 @@
     [self layoutButtons];
 }
 
+- (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *textFeild))configurationHandler
+{
+    if (_textFeilds == nil) {
+        _textFeilds = [NSMutableArray array];
+    }
+    
+    UITextField *textField = [[UITextField alloc]init];
+    textField.tag = kTextFeildOffset + _textFeilds.count;
+    textField.backgroundColor = [UIColor whiteColor];
+    textField.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    if (configurationHandler) {
+        configurationHandler(textField);
+    }
+    
+    [_textFeildContentView addSubview:textField];
+    [_textFeilds addObject:textField];
+    
+    [self layoutTextFeilds];
+}
+
 #pragma mark - layout contenview
 
 - (void)layoutContentViews
@@ -174,18 +205,16 @@
     
     [self addConstarintWithView:_textContentView topView:self leftView:self bottomView:nil rightView:self edageInset:UIEdgeInsetsMake(_contentViewEdge, _contentViewEdge, 0, -_contentViewEdge)];
     
-//        // textFeildContentView
-//        _textFeildContentView.translatesAutoresizingMaskIntoConstraints = NO;
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:_textFeildContentView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_textContentView attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
-//    
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:_textFeildContentView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
-//    
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:_textFeildContentView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
-    //
-        // buttonContentView
+    // textFeildContentView
+    _textFeildContentView.translatesAutoresizingMaskIntoConstraints = NO;
+    _textFeildTopConstraint = [self addConstarintWithTopView:_textContentView toBottomView:_textFeildContentView constarint:0];
+    
+    [self addConstarintWithView:_textFeildContentView topView:nil leftView:self bottomView:nil rightView:self edageInset:UIEdgeInsetsMake(0, _contentViewEdge, 0, -_contentViewEdge)];
+    
+    // buttonContentView
     _buttonContentView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    [self addConstarintWithTopView:_textContentView toBottomView:_buttonContentView constarint:_contentViewSpace];
+    [self addConstarintWithTopView:_textFeildContentView toBottomView:_buttonContentView constarint:_contentViewSpace];
     
     [self addConstarintWithView:_buttonContentView topView:nil leftView:self bottomView:self rightView:self edageInset:UIEdgeInsetsMake(0, _contentViewEdge, -_contentViewEdge, -_contentViewEdge)];
 }
@@ -205,7 +234,7 @@
     UIButton *button = _buttons.lastObject;
     if (_buttons.count == 1) {
         [button addConstraintToView:_buttonContentView edageInset:UIEdgeInsetsZero];
-        [button addConstarintWidth:0 height:44];
+        [button addConstarintWidth:0 height:KButtonHeight];
     }else if (_buttons.count == 2) {
         UIButton *firstButton = _buttons.firstObject;
         [_buttonContentView removeConstraintWithView:firstButton attribte:NSLayoutAttributeRight];
@@ -226,8 +255,31 @@
         UIButton *lastSecondBtn = _buttons[_buttons.count-2];
         [_buttonContentView removeConstraintWithView:lastSecondBtn attribte:NSLayoutAttributeBottom];
         [_buttonContentView addConstarintWithTopView:lastSecondBtn toBottomView:button constarint:_textLabelSpace];
-        [_buttonContentView addConstarintWithView:button topView:nil leftView:_buttonContentView bottomView:_buttonContentView rightView:nil edageInset:UIEdgeInsetsZero];
-        [_buttonContentView addConstarintEqualWithView:button widthToView:lastSecondBtn heightToView:lastSecondBtn];
+        [_buttonContentView addConstarintWithView:button topView:nil leftView:_buttonContentView bottomView:_buttonContentView rightView:_buttonContentView edageInset:UIEdgeInsetsZero];
+        [_buttonContentView addConstarintEqualWithView:button widthToView:nil heightToView:lastSecondBtn];
+    }
+}
+
+- (void)layoutTextFeilds
+{
+    UITextField *textFeild = _textFeilds.lastObject;
+    
+    if (_textFeilds.count == 1) {
+        // setup textFeildContentView
+        _textFeildContentView.backgroundColor = _textFieldBorderColor;
+        _textFeildContentView.layer.masksToBounds = YES;
+        _textFeildContentView.layer.cornerRadius = 4;
+        _textFeildContentView.layer.borderWidth = 0.5;
+        _textFeildContentView.layer.borderColor = _textFieldBorderColor.CGColor;
+        _textFeildTopConstraint.constant = -_contentViewSpace;
+        [textFeild addConstraintToView:_textFeildContentView edageInset:UIEdgeInsetsZero];
+        [textFeild addConstarintWidth:0 height:kTextFeildHeight];
+    }else {
+        UITextField *lastSecondTextFeild = _textFeilds[_textFeilds.count-2];
+        [_textFeildContentView removeConstraintWithView:lastSecondTextFeild attribte:NSLayoutAttributeBottom];
+        [_textFeildContentView addConstarintWithTopView:lastSecondTextFeild toBottomView:textFeild constarint:0.5];
+        [_textFeildContentView addConstarintWithView:textFeild topView:nil leftView:_textFeildContentView bottomView:_textFeildContentView rightView:_textFeildContentView edageInset:UIEdgeInsetsZero];
+        [_textFeildContentView addConstarintEqualWithView:textFeild widthToView:nil heightToView:lastSecondTextFeild];
     }
 }
 

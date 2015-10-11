@@ -17,7 +17,7 @@
 
 - (void)addConstarintWithLeftView:(UIView *)leftView toRightView:(UIView *)rightView constarint:(CGFloat)constarint;
 
-- (void)addConstarintWithTopView:(UIView *)topView toBottomView:(UIView *)bottomView constarint:(CGFloat)constarint;
+- (NSLayoutConstraint *)addConstarintWithTopView:(UIView *)topView toBottomView:(UIView *)bottomView constarint:(CGFloat)constarint;
 
 - (void)addConstarintWidth:(CGFloat)width height:(CGFloat)height;
 

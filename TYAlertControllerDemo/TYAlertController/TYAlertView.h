@@ -31,8 +31,12 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak, readonly) UILabel *titleLable;
 @property (nonatomic, weak, readonly) UILabel *messageLabel;
 
+@property (nonatomic, strong) UIColor *textFieldBorderColor;
+
 + (instancetype)alertViewWithTitle:(NSString *)title message:(NSString *)message;
 
 - (void)addAction:(TYAlertAction *)action;
+
+- (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *textField))configurationHandler;
 
 @end

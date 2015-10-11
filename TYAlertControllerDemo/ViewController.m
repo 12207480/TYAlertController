@@ -36,12 +36,24 @@
     [alertView addAction:[TYAlertAction actionWithTitle:@"取消" style:TYAlertActionStyleCancle handler:^(TYAlertAction *action) {
         
     }]];
+    
     [alertView addAction:[TYAlertAction actionWithTitle:@"默认1" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
         
     }]];
-    [alertView addAction:[TYAlertAction actionWithTitle:@"默认2" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
+//    [alertView addAction:[TYAlertAction actionWithTitle:@"默认2" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
+//        
+//    }]];
+    
+    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         
-    }]];
+    }];
+    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        
+    }];
+    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        
+    }];
+    
     TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleAlert];
     [self presentViewController:alertController animated:YES completion:nil];
 }
