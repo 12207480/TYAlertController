@@ -31,7 +31,27 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak, readonly) UILabel *titleLable;
 @property (nonatomic, weak, readonly) UILabel *messageLabel;
 
+// contentView space custom
+@property (nonatomic, assign) CGFloat contentViewSpace;
+
+// textLabel custom
+@property (nonatomic, assign) CGFloat textLabelSpace;
+@property (nonatomic, assign) CGFloat textLabelContentViewEdge;
+
+// button custom
+@property (nonatomic, assign) CGFloat buttonHeight;
+@property (nonatomic, assign) CGFloat buttonSpace;
+@property (nonatomic, assign) CGFloat buttonContentViewEdge;
+
+// textFeild custom
 @property (nonatomic, strong) UIColor *textFieldBorderColor;
+@property (nonatomic, strong) UIColor *textFieldBackgroudColor;
+@property (nonatomic, strong) UIFont *textFieldFont;
+@property (nonatomic, assign) CGFloat textFeildHeight;
+@property (nonatomic, assign) CGFloat textFeildEdge;
+@property (nonatomic, assign) CGFloat textFeildorderWidth;
+@property (nonatomic, assign) CGFloat textFeildContentViewEdge;
+
 
 + (instancetype)alertViewWithTitle:(NSString *)title message:(NSString *)message;
 
