@@ -25,8 +25,6 @@
 
 - (IBAction)showAlertView:(id)sender {
     
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 300, 120)];
-    view.backgroundColor = [UIColor blueColor];
     TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"A message should be a short, complete sentence."];
 
     __typeof (self) __weak weakSelf = self;
@@ -56,8 +54,6 @@
 }
 - (IBAction)showActionSheet:(id)sender {
     
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 300, 120)];
-    view.backgroundColor = [UIColor blueColor];
     TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"A message should be a short, complete sentence."];
     
     [alertView addAction:[TYAlertAction actionWithTitle:@"确定" style:TYAlertActionStyleDestructive handler:^(TYAlertAction *action) {

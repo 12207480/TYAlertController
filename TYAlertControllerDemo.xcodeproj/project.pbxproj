@@ -146,8 +146,8 @@
 		D35854A31B953F3D00B5FA1F /* TYAlertController */ = {
 			isa = PBXGroup;
 			children = (
-				D386E9701B9C15E800321875 /* AlertAimations */,
 				D386E9711B9C162400321875 /* AlertViews */,
+				D386E9701B9C15E800321875 /* AlertAimations */,
 				D35854A41B953FC300B5FA1F /* TYAlertController.h */,
 				D35854A51B953FC300B5FA1F /* TYAlertController.m */,
 				D35854B71B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m */,
