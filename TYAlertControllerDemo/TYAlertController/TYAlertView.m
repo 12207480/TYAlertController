@@ -90,11 +90,11 @@
         
         [self addContentViews];
         
-        [self layoutContentViews];
+        //[self layoutContentViews];
         
         [self addTextLabels];
         
-        [self layoutTextLabels];
+        //[self layoutTextLabels];
         
     }
     return self;
@@ -189,9 +189,15 @@
     button.tag = kButtonTagOffset + _buttons.count;
     button.translatesAutoresizingMaskIntoConstraints = NO;
     [button addTarget:self action:@selector(actionButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
     [_buttonContentView addSubview:button];
     [_buttons addObject:button];
     [_actions addObject:action];
+    
+    if (_buttons.count == 1) {
+        [self layoutContentViews];
+        [self layoutTextLabels];
+    }
     
     [self layoutButtons];
 }
@@ -253,9 +259,11 @@
 
 - (void)layoutTextLabels
 {
+    // title
     _titleLable.translatesAutoresizingMaskIntoConstraints = NO;
     [_textContentView addConstarintWithView:_titleLable topView:_textContentView leftView:_textContentView bottomView:nil rightView:_textContentView edageInset:UIEdgeInsetsZero];
     
+    // message
     _messageLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [_textContentView addConstarintWithTopView:_titleLable toBottomView:_messageLabel constarint:_textLabelSpace];
     [_textContentView addConstarintWithView:_messageLabel topView:nil leftView:_textContentView bottomView:_textContentView rightView:_textContentView edageInset:UIEdgeInsetsZero];
@@ -265,6 +273,9 @@
 {
     UIButton *button = _buttons.lastObject;
     if (_buttons.count == 1) {
+        
+        
+        
         [button addConstraintToView:_buttonContentView edageInset:UIEdgeInsetsZero];
         [button addConstarintWidth:0 height:_buttonHeight];
     }else if (_buttons.count == 2) {
@@ -284,6 +295,7 @@
             [_buttonContentView addConstarintWithTopView:firstBtn toBottomView:secondBtn constarint:_buttonSpace];
             
         }
+        
         UIButton *lastSecondBtn = _buttons[_buttons.count-2];
         [_buttonContentView removeConstraintWithView:lastSecondBtn attribte:NSLayoutAttributeBottom];
         [_buttonContentView addConstarintWithTopView:lastSecondBtn toBottomView:button constarint:_buttonSpace];
