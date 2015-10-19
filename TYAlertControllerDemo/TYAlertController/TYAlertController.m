@@ -118,7 +118,7 @@
     backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
     [self.view addSubview:backgroundView];
     _backgroundView = backgroundView;
-    [_backgroundView addConstraintToView:self.view edageInset:UIEdgeInsetsZero];
+    [self.view addConstraintToView:_backgroundView edageInset:UIEdgeInsetsZero];
 }
 
 - (void)addSingleTapGesture
@@ -140,7 +140,7 @@
         [self.view addSubview:backgroundView];
         backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
         _backgroundView = backgroundView;
-        [_backgroundView addConstraintToView:self.view edageInset:UIEdgeInsetsZero];
+        [self.view addConstraintToView:_backgroundView edageInset:UIEdgeInsetsZero];
         [self addSingleTapGesture];
     }
 }

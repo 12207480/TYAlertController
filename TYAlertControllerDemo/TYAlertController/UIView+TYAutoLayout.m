@@ -12,7 +12,7 @@
 
 - (void)addConstraintToView:(UIView *)view edageInset:(UIEdgeInsets)edageInset
 {
-    [view addConstarintWithView:self topView:view leftView:view bottomView:view rightView:view edageInset:edageInset];
+    [self addConstarintWithView:view topView:self leftView:self bottomView:self rightView:self edageInset:edageInset];
 }
 
 - (void)addConstarintWithView:(UIView *)view topView:(UIView *)topView leftView:(UIView *)leftView

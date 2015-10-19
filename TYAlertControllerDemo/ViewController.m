@@ -75,8 +75,8 @@
     
     UIView *redView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
     redView.backgroundColor = [UIColor redColor];
-    //[redView showInWindowWithOriginY:60];
-    [redView showInController:self];
+    [redView showInWindowWithOriginY:60];
+    //[redView showInController:self];
     //[TYShowAlertView showAlertViewWithView:redView originY:60];
 }
 

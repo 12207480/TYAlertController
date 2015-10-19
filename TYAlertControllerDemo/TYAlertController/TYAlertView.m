@@ -295,7 +295,7 @@
         
         
         
-        [button addConstraintToView:_buttonContentView edageInset:UIEdgeInsetsZero];
+        [_buttonContentView addConstraintToView:button edageInset:UIEdgeInsetsZero];
         [button addConstarintWidth:0 height:_buttonHeight];
     }else if (_buttons.count == 2) {
         UIButton *firstButton = _buttons.firstObject;
@@ -335,7 +335,7 @@
         _textFeildContentView.layer.borderWidth = _textFeildorderWidth;
         _textFeildContentView.layer.borderColor = _textFieldBorderColor.CGColor;
         _textFeildTopConstraint.constant = -_contentViewSpace;
-        [textFeild addConstraintToView:_textFeildContentView edageInset:UIEdgeInsetsMake(_textFeildorderWidth, _textFeildEdge, -_textFeildorderWidth, -_textFeildEdge)];
+        [_textFeildContentView addConstraintToView:textFeild edageInset:UIEdgeInsetsMake(_textFeildorderWidth, _textFeildEdge, -_textFeildorderWidth, -_textFeildEdge)];
         [textFeild addConstarintWidth:0 height:_textFeildHeight];
     }else {
         // textFeild

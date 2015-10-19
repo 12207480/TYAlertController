@@ -77,7 +77,7 @@
     [self addSubview:backgroundView];
     _backgroundView = backgroundView;
     _backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
-    [_backgroundView addConstraintToView:self edageInset:UIEdgeInsetsZero];
+    [self addConstraintToView:_backgroundView edageInset:UIEdgeInsetsZero];
 }
 
 - (void)setBackgroundView:(UIView *)backgroundView
@@ -88,7 +88,7 @@
         [self addSubview:backgroundView];
         _backgroundView = backgroundView;
         _backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
-        [_backgroundView addConstraintToView:self edageInset:UIEdgeInsetsZero];
+        [self addConstraintToView:_backgroundView edageInset:UIEdgeInsetsZero];
         [self addSingleGesture];
     }
 }
@@ -153,7 +153,7 @@
     if (self.superview == nil) {
         [kCurrentWindow addSubview:self];
         self.translatesAutoresizingMaskIntoConstraints = 0;
-        [self addConstraintToView:kCurrentWindow edageInset:UIEdgeInsetsZero];
+        [kCurrentWindow addConstraintToView:self edageInset:UIEdgeInsetsZero];
         [self layoutAlertView];
     }
     self.alpha = 0;
