@@ -2,11 +2,12 @@
 //  TYAlertView.m
 //  TYAlertControllerDemo
 //
-//  Created by SunYong on 15/9/7.
+//  Created by tanyang on 15/9/7.
 //  Copyright (c) 2015年 tanyang. All rights reserved.
 //
 
 #import "TYAlertView.h"
+#import "UIView+TYAlertView.h"
 #import "UIView+TYAutoLayout.h"
 
 @interface TYAlertAction ()
@@ -90,11 +91,7 @@
         
         [self addContentViews];
         
-        //[self layoutContentViews];
-        
         [self addTextLabels];
-        
-        //[self layoutTextLabels];
         
     }
     return self;
@@ -129,6 +126,11 @@
     _buttonHeight = KButtonHeight;
     _buttonSpace = kButtonSpace;
     _buttonContentViewEdge = kContentViewEdge;
+    _buttonCornerRadius = 4.0;
+    _buttonFont = [UIFont fontWithName:@"HelveticaNeue" size:16];;
+    _buttonDefaultBgColor = [UIColor colorWithRed:52/255.0 green:152/255.0 blue:219/255.0 alpha:1];
+    _buttonCancleBgColor = [UIColor colorWithRed:127/255.0 green:140/255.0 blue:141/255.0 alpha:1];
+    _buttonDestructiveBgColor = [UIColor colorWithRed:231/255.0 green:76/255.0 blue:60/255.0 alpha:1];
     
     _textFeildHeight = kTextFeildHeight;
     _textFeildEdge = kTextFeildEdge;
@@ -141,6 +143,21 @@
     
     _buttons = [NSMutableArray array];
     _actions = [NSMutableArray array];
+}
+
+- (UIColor *)buttonBgColorWithStyle:(TYAlertActionStyle)style
+{
+    switch (style) {
+        case TYAlertActionStyleDefault:
+            return _buttonDefaultBgColor;
+        case TYAlertActionStyleCancle:
+            return _buttonCancleBgColor;
+        case TYAlertActionStyleDestructive:
+            return _buttonDestructiveBgColor;
+            
+        default:
+            return nil;
+    }
 }
 
 #pragma mark - add contentview
@@ -183,8 +200,10 @@
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.clipsToBounds = YES;
+    button.layer.cornerRadius = _buttonCornerRadius;
     [button setTitle:action.title forState:UIControlStateNormal];
-    button.backgroundColor = [UIColor blueColor];
+    button.titleLabel.font = _buttonFont;
+    button.backgroundColor = [self buttonBgColorWithStyle:action.style];
     button.enabled = action.enabled;
     button.tag = kButtonTagOffset + _buttons.count;
     button.translatesAutoresizingMaskIntoConstraints = NO;

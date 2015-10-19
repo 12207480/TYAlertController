@@ -2,18 +2,17 @@
 //  TYAlertView.h
 //  TYAlertControllerDemo
 //
-//  Created by SunYong on 15/9/7.
+//  Created by tanyang on 15/9/7.
 //  Copyright (c) 2015年 tanyang. All rights reserved.
 //
 
-#import "UIView+TYAlertView.h"
+#import <UIKit/UIKit.h>
 
-typedef enum : NSUInteger {
+typedef NS_ENUM(NSUInteger, TYAlertActionStyle) {
     TYAlertActionStyleDefault,
     TYAlertActionStyleCancle,
     TYAlertActionStyleDestructive,
-} TYAlertActionStyle;
-
+};
 
 @interface TYAlertAction : NSObject <NSCopying>
 
@@ -42,6 +41,11 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) CGFloat buttonHeight;
 @property (nonatomic, assign) CGFloat buttonSpace;
 @property (nonatomic, assign) CGFloat buttonContentViewEdge;
+@property (nonatomic, assign) CGFloat buttonCornerRadius;
+@property (nonatomic, strong) UIFont *buttonFont;
+@property (nonatomic, strong) UIColor *buttonDefaultBgColor;
+@property (nonatomic, strong) UIColor *buttonCancleBgColor;
+@property (nonatomic, strong) UIColor *buttonDestructiveBgColor;
 
 // textFeild custom
 @property (nonatomic, strong) UIColor *textFieldBorderColor;

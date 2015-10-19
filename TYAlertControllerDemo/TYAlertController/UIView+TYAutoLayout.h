@@ -2,7 +2,7 @@
 //  UIView+TYAutoLayout.h
 //  TYAlertControllerDemo
 //
-//  Created by SunYong on 15/9/8.
+//  Created by tanyang on 15/9/8.
 //  Copyright (c) 2015年 tanyang. All rights reserved.
 //
 

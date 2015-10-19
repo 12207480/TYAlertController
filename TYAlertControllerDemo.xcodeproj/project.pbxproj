@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0873F0D1BD370C700D2F4D5 /* TYShowAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0873F0C1BD370C700D2F4D5 /* TYShowAlertView.m */; settings = {ASSET_TAGS = (); }; };
 		D35854241B9532D700B5FA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854231B9532D700B5FA1F /* main.m */; };
 		D35854271B9532D700B5FA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854261B9532D700B5FA1F /* AppDelegate.m */; };
 		D358542A1B9532D700B5FA1F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854291B9532D700B5FA1F /* ViewController.m */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B0873F0B1BD370C700D2F4D5 /* TYShowAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYShowAlertView.h; sourceTree = "<group>"; };
+		B0873F0C1BD370C700D2F4D5 /* TYShowAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYShowAlertView.m; sourceTree = "<group>"; };
 		D358541E1B9532D700B5FA1F /* TYAlertControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TYAlertControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35854221B9532D700B5FA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D35854231B9532D700B5FA1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 				D35854A41B953FC300B5FA1F /* TYAlertController.h */,
 				D35854A51B953FC300B5FA1F /* TYAlertController.m */,
 				D35854B71B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m */,
+				B0873F0B1BD370C700D2F4D5 /* TYShowAlertView.h */,
+				B0873F0C1BD370C700D2F4D5 /* TYShowAlertView.m */,
 			);
 			path = TYAlertController;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 				D35854271B9532D700B5FA1F /* AppDelegate.m in Sources */,
 				D3C1A9731B9D16D5009738B0 /* UIView+TYAlertView.m in Sources */,
 				D395FE1F1B96C7F1000F72F7 /* TYAlertScaleFadeAnimation.m in Sources */,
+				B0873F0D1BD370C700D2F4D5 /* TYShowAlertView.m in Sources */,
 				D35854241B9532D700B5FA1F /* main.m in Sources */,
 				D35854A61B953FC300B5FA1F /* TYAlertController.m in Sources */,
 				D35854B81B95BC9700B5FA1F /* TYAlertController+TransitionAnimate.m in Sources */,

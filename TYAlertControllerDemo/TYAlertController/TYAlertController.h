@@ -2,11 +2,12 @@
 //  TYAlertController.h
 //  TYAlertControllerDemo
 //
-//  Created by SunYong on 15/9/1.
+//  Created by tanyang on 15/9/1.
 //  Copyright (c) 2015年 tanyang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "TYAlertView.h"
 
 typedef NS_ENUM(NSInteger, TYAlertControllerStyle) {
     TYAlertControllerStyleAlert = 0,
@@ -32,7 +33,7 @@ typedef NS_ENUM(NSInteger, TYAlertTransitionAnimation) {
 
 @property (nonatomic, assign, readonly) Class transitionAnimationClass;
 
-@property (nonatomic, assign) BOOL backgoundTapEnable;  // default YES
+@property (nonatomic, assign) BOOL backgoundTapDismissEnable;  // default YES
 
 @property (nonatomic, assign) CGFloat alertViewOriginY;  // default center Y
 
@@ -40,12 +41,15 @@ typedef NS_ENUM(NSInteger, TYAlertTransitionAnimation) {
 
 @property (nonatomic, copy) void (^dismissComplete)(void); // dismiss controller completed block
 
++ (instancetype)alertControllerWithAlertView:(UIView *)alertView;
 
 + (instancetype)alertControllerWithAlertView:(UIView *)alertView preferredStyle:(TYAlertControllerStyle)preferredStyle;
 
 + (instancetype)alertControllerWithAlertView:(UIView *)alertView preferredStyle:(TYAlertControllerStyle)preferredStyle transitionAnimation:(TYAlertTransitionAnimation)transitionAnimation;
 
 + (instancetype)alertControllerWithAlertView:(UIView *)alertView preferredStyle:(TYAlertControllerStyle)preferredStyle transitionAnimationClass:(Class)transitionAnimationClass;
+
+- (void)dismissViewControllerAnimated: (BOOL)animated;
 
 @end
 

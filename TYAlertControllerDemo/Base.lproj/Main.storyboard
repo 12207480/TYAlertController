@@ -45,11 +45,25 @@
                                     <action selector="showActionSheet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6ok-Ne-kuo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WY-V3-iTv">
+                                <rect key="frame" x="231" y="240" width="139" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="U3E-o2-zSc"/>
+                                    <constraint firstAttribute="width" constant="139" id="eKz-vX-AMM"/>
+                                </constraints>
+                                <state key="normal" title="AlertViewInWindow"/>
+                                <connections>
+                                    <action selector="showAlertViewInWindow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PKv-Os-aIC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="1WY-V3-iTv" firstAttribute="top" secondItem="Pbc-5y-GLg" secondAttribute="bottom" constant="42" id="437-WF-XhU"/>
                             <constraint firstItem="Pbc-5y-GLg" firstAttribute="top" secondItem="vCS-SU-E0R" secondAttribute="bottom" constant="35" id="XMM-Dk-17g"/>
+                            <constraint firstItem="1WY-V3-iTv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g2R-k6-tZu"/>
                             <constraint firstItem="vCS-SU-E0R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="83" id="gTK-jF-eL0"/>
                             <constraint firstAttribute="centerX" secondItem="Pbc-5y-GLg" secondAttribute="centerX" id="mBu-C3-nZu"/>
                             <constraint firstAttribute="centerX" secondItem="vCS-SU-E0R" secondAttribute="centerX" id="tYU-co-tHf"/>
@@ -58,6 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="255" y="225"/>
         </scene>
     </scenes>
 </document>

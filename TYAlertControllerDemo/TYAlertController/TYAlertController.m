@@ -2,7 +2,7 @@
 //  TYAlertController.m
 //  TYAlertControllerDemo
 //
-//  Created by SunYong on 15/9/1.
+//  Created by tanyang on 15/9/1.
 //  Copyright (c) 2015年 tanyang. All rights reserved.
 //
 
@@ -18,6 +18,8 @@
 @property (nonatomic, assign) TYAlertTransitionAnimation transitionAnimation;
 
 @property (nonatomic, assign) Class transitionAnimationClass;
+
+@property (nonatomic, weak) UITapGestureRecognizer *singleTap;
 
 @end
 
@@ -60,19 +62,36 @@
     return self;
 }
 
++ (instancetype)alertControllerWithAlertView:(UIView *)alertView
+{
+    return [[self alloc]initWithAlertView:alertView
+                           preferredStyle:TYAlertControllerStyleAlert
+                      transitionAnimation:TYAlertTransitionAnimationFade
+                 transitionAnimationClass:nil];
+}
+
 + (instancetype)alertControllerWithAlertView:(UIView *)alertView preferredStyle:(TYAlertControllerStyle)preferredStyle
 {
-    return [[self alloc]initWithAlertView:alertView preferredStyle:preferredStyle transitionAnimation:TYAlertTransitionAnimationFade transitionAnimationClass:nil];
+    return [[self alloc]initWithAlertView:alertView
+                           preferredStyle:preferredStyle
+                      transitionAnimation:TYAlertTransitionAnimationFade
+                 transitionAnimationClass:nil];
 }
 
 + (instancetype)alertControllerWithAlertView:(UIView *)alertView preferredStyle:(TYAlertControllerStyle)preferredStyle transitionAnimation:(TYAlertTransitionAnimation)transitionAnimation
 {
-    return [[self alloc]initWithAlertView:alertView preferredStyle:preferredStyle transitionAnimation:transitionAnimation transitionAnimationClass:nil];
+    return [[self alloc]initWithAlertView:alertView
+                           preferredStyle:preferredStyle
+                      transitionAnimation:transitionAnimation
+                 transitionAnimationClass:nil];
 }
 
 + (instancetype)alertControllerWithAlertView:(UIView *)alertView preferredStyle:(TYAlertControllerStyle)preferredStyle transitionAnimationClass:(Class)transitionAnimationClass
 {
-    return [[self alloc]initWithAlertView:alertView preferredStyle:preferredStyle transitionAnimation:TYAlertTransitionAnimationCustom transitionAnimationClass:transitionAnimationClass];
+    return [[self alloc]initWithAlertView:alertView
+                           preferredStyle:preferredStyle
+                      transitionAnimation:TYAlertTransitionAnimationCustom
+                 transitionAnimationClass:transitionAnimationClass];
 }
 
 #pragma mark - life cycle
@@ -81,6 +100,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor clearColor];
+    
     [self addBackgroundView];
     
     [self addSingleTapGesture];
@@ -91,36 +111,44 @@
     
 }
 
-- (UIView *)backgroundView
-{
-    if (_backgroundView == nil) {
-        _backgroundView = [[UIView alloc]init];
-        _backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
-    }
-    return _backgroundView;
-}
-
 - (void)addBackgroundView
 {
-    self.backgroundView.frame = self.view.bounds;
-    [self.view addSubview:self.backgroundView];
+    UIView *backgroundView = [[UIView alloc]init];
+    backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
+    backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
+    [self.view addSubview:backgroundView];
+    _backgroundView = backgroundView;
+    [_backgroundView addConstraintToView:self.view edageInset:UIEdgeInsetsZero];
 }
 
 - (void)addSingleTapGesture
 {
-    if (!self.backgoundTapEnable) {
-        return;
-    }
-    // 点击删除
     self.view.userInteractionEnabled = YES;
-    //单指单击
+    
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
-    //手指数
-    singleTap.numberOfTouchesRequired = 1;
-    //点击次数
-    singleTap.numberOfTapsRequired = 1;
-    //增加事件者响应者，
+    singleTap.enabled = _backgoundTapDismissEnable;
+  
     [self.backgroundView addGestureRecognizer:singleTap];
+    _singleTap = singleTap;
+}
+
+- (void)setBackgroundView:(UIView *)backgroundView
+{
+    if (_backgroundView != backgroundView) {
+        [_backgroundView removeFromSuperview];
+        
+        [self.view addSubview:backgroundView];
+        backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
+        _backgroundView = backgroundView;
+        [_backgroundView addConstraintToView:self.view edageInset:UIEdgeInsetsZero];
+        [self addSingleTapGesture];
+    }
+}
+
+- (void)setBackgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable
+{
+    _backgoundTapDismissEnable = backgoundTapDismissEnable;
+    _singleTap.enabled = backgoundTapDismissEnable;
 }
 
 - (void)configureController
@@ -129,7 +157,7 @@
     self.definesPresentationContext = YES;
     self.modalPresentationStyle = UIModalPresentationCustom;
     self.transitioningDelegate = self;
-    _backgoundTapEnable = YES;
+    _backgoundTapDismissEnable = YES;
     _alertViewEdging = 15;
 }
 
@@ -163,7 +191,6 @@
     
     // top Y
     if (_alertViewOriginY > 0) {
-
         [self.view addConstarintWithView:_alertView topView:self.view leftView:nil bottomView:nil rightView:nil edageInset:UIEdgeInsetsMake(_alertViewOriginY, 0, 0, 0)];
     }else {
         [self.view addConstraintCenterXToView:nil CenterYToView:_alertView];
@@ -202,11 +229,16 @@
 
 }
 
+- (void)dismissViewControllerAnimated:(BOOL)animated
+{
+    [self dismissViewControllerAnimated:YES completion:self.dismissComplete];
+}
+
 #pragma mark - action
 
 - (void)singleTap:(UITapGestureRecognizer *)sender
 {
-    [self dismissViewControllerAnimated:YES completion:self.dismissComplete];
+    [self dismissViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
