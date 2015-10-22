@@ -32,21 +32,19 @@
     [alertView addAction:[TYAlertAction actionWithTitle:@"取消" style:TYAlertActionStyleCancle handler:^(TYAlertAction *action) {
         
     }]];
-    
-    [alertView addAction:[TYAlertAction actionWithTitle:@"确定" style:TYAlertActionStyleDestructive handler:^(TYAlertAction *action) {
-        
-    }]];
+//
+//    [alertView addAction:[TYAlertAction actionWithTitle:@"确定" style:TYAlertActionStyleDestructive handler:^(TYAlertAction *action) {
+//        
+//    }]];
     
 //    [alertView addAction:[TYAlertAction actionWithTitle:@"默认1" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
 //        
 //    }]];
-//    [alertView addAction:[TYAlertAction actionWithTitle:@"默认2" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
-//        
-//    }]];
+    
 //    
-    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        
-    }];
+//    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+//        
+//    }];
 //    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
 //        
 //    }];
@@ -54,7 +52,7 @@
     TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleAlert];
     
     UIImage *image = [UIImage snapshotImageWithView:self.view];
-    alertController.backgroundView = [[UIImageView alloc]initWithImage:[image applyTintEffectWithColor:[UIColor clearColor]]];
+    alertController.backgroundView = [[UIImageView alloc]initWithImage:[image applyLightEffect]];
     
     //alertController.alertViewOriginY = 60;
     [self presentViewController:alertController animated:YES completion:nil];
@@ -62,6 +60,10 @@
 - (IBAction)showActionSheet:(id)sender {
     
     TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"A message should be a short, complete sentence."];
+    
+    [alertView addAction:[TYAlertAction actionWithTitle:@"默认2" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
+    
+    }]];
     
     [alertView addAction:[TYAlertAction actionWithTitle:@"默认1" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
         

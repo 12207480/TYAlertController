@@ -17,23 +17,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCS-SU-E0R">
-                                <rect key="frame" x="257" y="103" width="87" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="k0k-Qy-0Gy">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yfr-BX-DRT">
+                                <rect key="frame" x="237" y="237" width="127" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="91" id="HNK-ek-Ch4"/>
+                                    <constraint firstAttribute="width" constant="127" id="gZw-9F-Seh"/>
+                                    <constraint firstAttribute="height" constant="30" id="md1-KB-DEL"/>
+                                </constraints>
+                                <state key="normal" title="customAlertView">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="HNK-ek-Ch4"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCS-SU-E0R">
+                                <rect key="frame" x="222" y="100" width="156" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="156" id="AfD-4k-fI6"/>
                                     <constraint firstAttribute="width" constant="87" id="EDr-Az-Wg8"/>
                                     <constraint firstAttribute="height" constant="30" id="M2D-4m-vPv"/>
                                 </constraints>
-                                <state key="normal" title="AlertView">
+                                <state key="normal" title="AlertViewInController">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="EDr-Az-Wg8"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="showAlertView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N4f-R7-iby"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbc-5y-GLg">
-                                <rect key="frame" x="255" y="168" width="91" height="30"/>
+                                <rect key="frame" x="255" y="165" width="91" height="30"/>
                                 <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="91" id="gIB-6P-PPI"/>
                                     <constraint firstAttribute="height" constant="30" id="zbZ-eV-dCO"/>
@@ -41,18 +86,29 @@
                                 <state key="normal" title="ActionSheet">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="showActionSheet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6ok-Ne-kuo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WY-V3-iTv">
-                                <rect key="frame" x="231" y="240" width="139" height="30"/>
+                                <rect key="frame" x="229.5" y="317" width="142" height="30"/>
                                 <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="U3E-o2-zSc"/>
-                                    <constraint firstAttribute="width" constant="139" id="eKz-vX-AMM"/>
+                                    <constraint firstAttribute="width" constant="142" id="eKz-vX-AMM"/>
                                 </constraints>
                                 <state key="normal" title="AlertViewInWindow"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="showAlertViewInWindow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PKv-Os-aIC"/>
                                 </connections>
@@ -61,10 +117,17 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1WY-V3-iTv" firstAttribute="top" secondItem="Pbc-5y-GLg" secondAttribute="bottom" constant="42" id="437-WF-XhU"/>
+                            <constraint firstItem="1WY-V3-iTv" firstAttribute="top" secondItem="Yfr-BX-DRT" secondAttribute="bottom" constant="50" id="5eB-EE-r5Z"/>
+                            <constraint firstAttribute="trailing" secondItem="k0k-Qy-0Gy" secondAttribute="trailing" id="8ry-Au-szq"/>
+                            <constraint firstItem="Yfr-BX-DRT" firstAttribute="top" secondItem="Pbc-5y-GLg" secondAttribute="bottom" constant="42" id="9NA-YE-ipl"/>
+                            <constraint firstItem="k0k-Qy-0Gy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Abd-iC-uZ3"/>
+                            <constraint firstItem="k0k-Qy-0Gy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="N7f-Z7-qps"/>
+                            <constraint firstItem="Yfr-BX-DRT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SDo-Pv-z7k"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="k0k-Qy-0Gy" secondAttribute="bottom" id="VGn-hG-lI4"/>
                             <constraint firstItem="Pbc-5y-GLg" firstAttribute="top" secondItem="vCS-SU-E0R" secondAttribute="bottom" constant="35" id="XMM-Dk-17g"/>
+                            <constraint firstItem="k0k-Qy-0Gy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g1Y-r6-VZe"/>
                             <constraint firstItem="1WY-V3-iTv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g2R-k6-tZu"/>
-                            <constraint firstItem="vCS-SU-E0R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="83" id="gTK-jF-eL0"/>
+                            <constraint firstItem="vCS-SU-E0R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="gTK-jF-eL0"/>
                             <constraint firstAttribute="centerX" secondItem="Pbc-5y-GLg" secondAttribute="centerX" id="mBu-C3-nZu"/>
                             <constraint firstAttribute="centerX" secondItem="vCS-SU-E0R" secondAttribute="centerX" id="tYU-co-tHf"/>
                         </constraints>
@@ -75,4 +138,7 @@
             <point key="canvasLocation" x="255" y="225"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="screen.jpg" width="600" height="880"/>
+    </resources>
 </document>

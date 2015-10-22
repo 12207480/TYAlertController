@@ -196,6 +196,14 @@
     _messageLabel = messageLabel;
 }
 
+- (void)didMoveToSuperview
+{
+    if (self.superview) {
+        [self layoutContentViews];
+        [self layoutTextLabels];
+    }
+}
+
 - (void)addAction:(TYAlertAction *)action
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -212,11 +220,6 @@
     [_buttonContentView addSubview:button];
     [_buttons addObject:button];
     [_actions addObject:action];
-    
-    if (_buttons.count == 1) {
-        [self layoutContentViews];
-        [self layoutTextLabels];
-    }
     
     [self layoutButtons];
 }
@@ -257,6 +260,9 @@
 
 - (void)layoutContentViews
 {
+    if (!_textContentView.translatesAutoresizingMaskIntoConstraints) {
+        return;
+    }
     // textContentView
     _textContentView.translatesAutoresizingMaskIntoConstraints = NO;
     
@@ -278,6 +284,9 @@
 
 - (void)layoutTextLabels
 {
+    if (!_titleLable.translatesAutoresizingMaskIntoConstraints && !_messageLabel.translatesAutoresizingMaskIntoConstraints) {
+        return;
+    }
     // title
     _titleLable.translatesAutoresizingMaskIntoConstraints = NO;
     [_textContentView addConstarintWithView:_titleLable topView:_textContentView leftView:_textContentView bottomView:nil rightView:_textContentView edageInset:UIEdgeInsetsZero];
@@ -292,9 +301,6 @@
 {
     UIButton *button = _buttons.lastObject;
     if (_buttons.count == 1) {
-        
-        
-        
         [_buttonContentView addConstraintToView:button edageInset:UIEdgeInsetsZero];
         [button addConstarintWidth:0 height:_buttonHeight];
     }else if (_buttons.count == 2) {
@@ -366,12 +372,9 @@
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect {
- // Drawing code
- }
- */
+- (void)dealloc
+{
+    NSLog(@"%@ dealloc",NSStringFromClass([self class]));
+}
 
 @end

@@ -105,9 +105,17 @@
     _singleTap.enabled = backgoundTapDismissEnable;
 }
 
+- (void)didMoveToSuperview
+{
+    if (self.superview) {
+        self.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.superview addConstraintToView:self edageInset:UIEdgeInsetsZero];
+        [self layoutAlertView];
+    }
+}
+
 - (void)layoutAlertView
 {
-    //[self layoutIfNeeded];
     _alertView.translatesAutoresizingMaskIntoConstraints = NO;
     // center X
     [self addConstraintCenterXToView:_alertView CenterYToView:nil];
@@ -126,7 +134,7 @@
         }
         
         if (!findAlertViewWidthConstraint) {
-            [_alertView addConstarintWidth:CGRectGetWidth(kCurrentWindow.frame)-2*_alertViewEdging height:0];
+            [_alertView addConstarintWidth:CGRectGetWidth(self.superview.frame)-2*_alertViewEdging height:0];
         }
     }
     
@@ -135,7 +143,7 @@
     
     if (_alertViewOriginY > 0) {
         [_alertView layoutIfNeeded];
-        alertViewCenterYConstraint.constant = _alertViewOriginY - (CGRectGetHeight(kCurrentWindow.frame) - CGRectGetHeight(_alertView.frame))/2;
+        alertViewCenterYConstraint.constant = _alertViewOriginY - (CGRectGetHeight(self.superview.frame) - CGRectGetHeight(_alertView.frame))/2;
     }
 }
 
@@ -161,9 +169,6 @@
 {
     if (self.superview == nil) {
         [kCurrentWindow addSubview:self];
-        self.translatesAutoresizingMaskIntoConstraints = NO;
-        [kCurrentWindow addConstraintToView:self edageInset:UIEdgeInsetsZero];
-        [self layoutAlertView];
     }
     self.alpha = 0;
     _alertView.transform = CGAffineTransformScale(_alertView.transform,0.1,0.1);
@@ -186,12 +191,9 @@
     }
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)dealloc
+{
+    NSLog(@"%@ dealloc",NSStringFromClass([self class]));
 }
-*/
 
 @end
