@@ -10,7 +10,7 @@
 #import "UIView+TYAutoLayout.h"
 
 @interface TYShowAlertView ()
-@property (nonatomic, weak) UIView *tipView;
+@property (nonatomic, weak) UIView *alertView;
 @property (nonatomic, weak) UITapGestureRecognizer *singleTap;
 @end
 
@@ -24,7 +24,7 @@
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor clearColor];
         
-        _backgoundTapDismissEnable = YES;
+        _backgoundTapDismissEnable = NO;
         _alertViewEdging = 15;
         
         [self addBackgroundView];
@@ -36,11 +36,10 @@
 
 - (instancetype)initWithAlertView:(UIView *)tipView
 {
-    //[[UIScreen mainScreen] bounds]
-    if (self = [self init]) {
+    if (self = [self initWithFrame:CGRectZero]) {
         
         [self addSubview:tipView];
-        _tipView = tipView;
+        _alertView = tipView;
     }
     return self;
 }
@@ -52,14 +51,20 @@
 
 + (void)showAlertViewWithView:(UIView *)alertView
 {
+    [self showAlertViewWithView:alertView backgoundTapDismissEnable:NO];
+}
+
++ (void)showAlertViewWithView:(UIView *)alertView backgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable
+{
     TYShowAlertView *showTipView = [self alertViewWithView:alertView];
+    showTipView.backgoundTapDismissEnable = backgoundTapDismissEnable;
     [showTipView show];
 }
 
 + (void)showAlertViewWithView:(UIView *)alertView originY:(CGFloat)originY
 {
     [self showAlertViewWithView:alertView
-                        originY:originY backgoundTapDismissEnable:YES];
+                        originY:originY backgoundTapDismissEnable:NO];
 }
 
 + (void)showAlertViewWithView:(UIView *)alertView originY:(CGFloat)originY backgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable
@@ -72,12 +77,14 @@
 
 - (void)addBackgroundView
 {
-    UIView *backgroundView = [[UIView alloc]initWithFrame:self.bounds];
-    backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
-    [self addSubview:backgroundView];
-    _backgroundView = backgroundView;
-    _backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addConstraintToView:_backgroundView edageInset:UIEdgeInsetsZero];
+    if (_backgroundView == nil) {
+        UIView *backgroundView = [[UIView alloc]initWithFrame:self.bounds];
+        backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
+        [self addSubview:backgroundView];
+        _backgroundView = backgroundView;
+        _backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addConstraintToView:_backgroundView edageInset:UIEdgeInsetsZero];
+    }
 }
 
 - (void)setBackgroundView:(UIView *)backgroundView
@@ -100,24 +107,18 @@
 
 - (void)layoutAlertView
 {
-    _tipView.translatesAutoresizingMaskIntoConstraints = NO;
+    //[self layoutIfNeeded];
+    _alertView.translatesAutoresizingMaskIntoConstraints = NO;
     // center X
-    [self addConstraintCenterXToView:_tipView CenterYToView:nil];
+    [self addConstraintCenterXToView:_alertView CenterYToView:nil];
     
-    // top Y
-    if (_alertViewOriginY > 0) {
-        [self addConstarintWithView:_tipView topView:self leftView:nil bottomView:nil rightView:nil edageInset:UIEdgeInsetsMake(_alertViewOriginY, 0, 0, 0)];
-    }else {
-        [self addConstraintCenterXToView:nil CenterYToView:_tipView];
-    }
-    
-    if (!CGSizeEqualToSize(_tipView.frame.size,CGSizeZero)) {
-        // width
-        [_tipView addConstarintWidth:CGRectGetWidth(_tipView.frame) height:CGRectGetHeight(_tipView.frame)];
+    // width, height
+    if (!CGSizeEqualToSize(_alertView.frame.size,CGSizeZero)) {
+        [_alertView addConstarintWidth:CGRectGetWidth(_alertView.frame) height:CGRectGetHeight(_alertView.frame)];
         
     }else {
         BOOL findAlertViewWidthConstraint = NO;
-        for (NSLayoutConstraint *constraint in _tipView.constraints) {
+        for (NSLayoutConstraint *constraint in _alertView.constraints) {
             if (constraint.firstAttribute == NSLayoutAttributeWidth) {
                 findAlertViewWidthConstraint = YES;
                 break;
@@ -125,8 +126,16 @@
         }
         
         if (!findAlertViewWidthConstraint) {
-            [_tipView addConstarintWidth:CGRectGetWidth(self.frame)-2*_alertViewEdging height:0];
+            [_alertView addConstarintWidth:CGRectGetWidth(kCurrentWindow.frame)-2*_alertViewEdging height:0];
         }
+    }
+    
+    // topY
+    NSLayoutConstraint *alertViewCenterYConstraint = [self addConstraintCenterYToView:_alertView constant:0];
+    
+    if (_alertViewOriginY > 0) {
+        [_alertView layoutIfNeeded];
+        alertViewCenterYConstraint.constant = _alertViewOriginY - (CGRectGetHeight(kCurrentWindow.frame) - CGRectGetHeight(_alertView.frame))/2;
     }
 }
 
@@ -152,14 +161,14 @@
 {
     if (self.superview == nil) {
         [kCurrentWindow addSubview:self];
-        self.translatesAutoresizingMaskIntoConstraints = 0;
+        self.translatesAutoresizingMaskIntoConstraints = NO;
         [kCurrentWindow addConstraintToView:self edageInset:UIEdgeInsetsZero];
         [self layoutAlertView];
     }
     self.alpha = 0;
-    self.tipView.transform = CGAffineTransformScale(self.tipView.transform,0.1,0.1);
+    _alertView.transform = CGAffineTransformScale(_alertView.transform,0.1,0.1);
     [UIView animateWithDuration:0.3 animations:^{
-        self.tipView.transform = CGAffineTransformIdentity;
+        _alertView.transform = CGAffineTransformIdentity;
         self.alpha = 1;
     }];
     
@@ -169,7 +178,7 @@
 {
     if (self.superview) {
         [UIView animateWithDuration:0.3 animations:^{
-            self.tipView.transform = CGAffineTransformScale(self.tipView.transform,0.1,0.1);
+            _alertView.transform = CGAffineTransformScale(_alertView.transform,0.1,0.1);
             self.alpha = 0;
         } completion:^(BOOL finished) {
             [self removeFromSuperview];

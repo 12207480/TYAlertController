@@ -10,15 +10,17 @@
 
 @interface TYShowAlertView : UIView
 
-@property (nonatomic, weak, readonly) UIView *tipView;
+@property (nonatomic, weak, readonly) UIView *alertView;
 @property (nonatomic, weak) UIView *backgroundView;
 
-@property (nonatomic, assign) BOOL backgoundTapDismissEnable;  // default YES
+@property (nonatomic, assign) BOOL backgoundTapDismissEnable;  // default NO
 @property (nonatomic, assign) CGFloat alertViewOriginY;  // default center Y
 @property (nonatomic, assign) CGFloat alertViewEdging;   // default 15
 
 
 +(void)showAlertViewWithView:(UIView *)alertView;
+
++ (void)showAlertViewWithView:(UIView *)alertView backgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable;
 
 +(void)showAlertViewWithView:(UIView *)alertView originY:(CGFloat)originY;
 

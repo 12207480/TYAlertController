@@ -127,7 +127,7 @@
     _buttonSpace = kButtonSpace;
     _buttonContentViewEdge = kContentViewEdge;
     _buttonCornerRadius = 4.0;
-    _buttonFont = [UIFont fontWithName:@"HelveticaNeue" size:16];;
+    _buttonFont = [UIFont fontWithName:@"HelveticaNeue" size:18];;
     _buttonDefaultBgColor = [UIColor colorWithRed:52/255.0 green:152/255.0 blue:219/255.0 alpha:1];
     _buttonCancleBgColor = [UIColor colorWithRed:127/255.0 green:140/255.0 blue:141/255.0 alpha:1];
     _buttonDestructiveBgColor = [UIColor colorWithRed:231/255.0 green:76/255.0 blue:60/255.0 alpha:1];

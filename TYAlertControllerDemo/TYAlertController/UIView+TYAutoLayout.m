@@ -80,6 +80,16 @@
     }
 }
 
+- (NSLayoutConstraint *)addConstraintCenterYToView:(UIView *)yView constant:(CGFloat)constant;
+{
+    if (yView) {
+        NSLayoutConstraint *centerYConstraint = [NSLayoutConstraint constraintWithItem:yView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:constant];
+        [self addConstraint:centerYConstraint];
+        return centerYConstraint;
+    }
+    return nil;
+}
+
 - (void)removeConstraintWithAttribte:(NSLayoutAttribute)attr
 {
     for (NSLayoutConstraint *constraint in self.constraints) {

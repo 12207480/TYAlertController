@@ -27,7 +27,6 @@
     switch (alertController.preferredStyle) {
         case TYAlertControllerStyleAlert:
             alertController.alertView.alpha = 0.0;
-            alertController.alertView.center = alertController.view.center;
             alertController.alertView.transform = CGAffineTransformMakeScale(0.5, 0.5);
             break;
         case TYAlertControllerStyleActionSheet:

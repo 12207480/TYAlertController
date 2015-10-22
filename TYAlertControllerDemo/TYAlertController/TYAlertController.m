@@ -21,6 +21,10 @@
 
 @property (nonatomic, weak) UITapGestureRecognizer *singleTap;
 
+@property (nonatomic, strong) NSLayoutConstraint *alertViewCenterYConstraint;
+
+@property (nonatomic, assign) CGFloat alertViewCenterYOffset;
+
 @end
 
 @implementation TYAlertController
@@ -109,15 +113,23 @@
     
     [self.view layoutIfNeeded];
     
+    if (_preferredStyle == TYAlertControllerStyleAlert) {
+        // UIKeyboard Notification
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    }
+    
 }
 
 - (void)addBackgroundView
 {
-    UIView *backgroundView = [[UIView alloc]init];
-    backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
-    backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
-    [self.view addSubview:backgroundView];
-    _backgroundView = backgroundView;
+    if (_backgroundView == nil) {
+        UIView *backgroundView = [[UIView alloc]init];
+        backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
+        _backgroundView = backgroundView;
+    }
+    _backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:_backgroundView];
     [self.view addConstraintToView:_backgroundView edageInset:UIEdgeInsetsZero];
 }
 
@@ -132,19 +144,6 @@
     _singleTap = singleTap;
 }
 
-- (void)setBackgroundView:(UIView *)backgroundView
-{
-    if (_backgroundView != backgroundView) {
-        [_backgroundView removeFromSuperview];
-        
-        [self.view addSubview:backgroundView];
-        backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
-        _backgroundView = backgroundView;
-        [self.view addConstraintToView:_backgroundView edageInset:UIEdgeInsetsZero];
-        [self addSingleTapGesture];
-    }
-}
-
 - (void)setBackgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable
 {
     _backgoundTapDismissEnable = backgoundTapDismissEnable;
@@ -157,7 +156,7 @@
     self.definesPresentationContext = YES;
     self.modalPresentationStyle = UIModalPresentationCustom;
     self.transitioningDelegate = self;
-    _backgoundTapDismissEnable = YES;
+    _backgoundTapDismissEnable = NO;
     _alertViewEdging = 15;
 }
 
@@ -189,15 +188,8 @@
     // center X
     [self.view addConstraintCenterXToView:_alertView CenterYToView:nil];
     
-    // top Y
-    if (_alertViewOriginY > 0) {
-        [self.view addConstarintWithView:_alertView topView:self.view leftView:nil bottomView:nil rightView:nil edageInset:UIEdgeInsetsMake(_alertViewOriginY, 0, 0, 0)];
-    }else {
-        [self.view addConstraintCenterXToView:nil CenterYToView:_alertView];
-    }
-    
+    // width, height
     if (!CGSizeEqualToSize(_alertView.frame.size,CGSizeZero)) {
-        // width
         [_alertView addConstarintWidth:CGRectGetWidth(_alertView.frame) height:CGRectGetHeight(_alertView.frame)];
 
     }else {
@@ -212,6 +204,17 @@
         if (!findAlertViewWidthConstraint) {
             [_alertView addConstarintWidth:CGRectGetWidth(self.view.frame)-2*_alertViewEdging height:0];
         }
+    }
+    
+    // top Y
+    _alertViewCenterYConstraint = [self.view addConstraintCenterYToView:_alertView constant:0];
+    
+    if (_alertViewOriginY > 0) {
+        [_alertView layoutIfNeeded];
+        _alertViewCenterYOffset = _alertViewOriginY - (CGRectGetHeight(self.view.frame) - CGRectGetHeight(_alertView.frame))/2;
+        _alertViewCenterYConstraint.constant = _alertViewCenterYOffset;
+    }else{
+        _alertViewCenterYOffset = 0;
     }
 }
 
@@ -241,6 +244,30 @@
     [self dismissViewControllerAnimated:YES];
 }
 
+#pragma mark - notifycation
+
+- (void)keyboardWillShow:(NSNotification*)notification{
+    CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    CGFloat alertViewBottomEdge = CGRectGetHeight(self.view.frame) -  CGRectGetMaxY(_alertView.frame);
+    CGFloat differ = CGRectGetHeight(keyboardRect) - alertViewBottomEdge;
+    
+    if (differ > 0) {
+         _alertViewCenterYConstraint.constant = _alertViewCenterYOffset - differ;
+        [UIView animateWithDuration:0.25 animations:^{
+            [self.view layoutIfNeeded];
+        }];
+    }
+}
+
+- (void)keyboardWillHide:(NSNotification*)notification{
+    
+    _alertViewCenterYConstraint.constant = _alertViewCenterYOffset;
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -248,6 +275,8 @@
 
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     NSLog(@"TYAlertController dealloc");
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B0873F0D1BD370C700D2F4D5 /* TYShowAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0873F0C1BD370C700D2F4D5 /* TYShowAlertView.m */; settings = {ASSET_TAGS = (); }; };
+		D324A5701BD8D13200BCBC6F /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = D324A56F1BD8D13200BCBC6F /* UIImage+ImageEffects.m */; settings = {ASSET_TAGS = (); }; };
 		D35854241B9532D700B5FA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854231B9532D700B5FA1F /* main.m */; };
 		D35854271B9532D700B5FA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854261B9532D700B5FA1F /* AppDelegate.m */; };
 		D358542A1B9532D700B5FA1F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854291B9532D700B5FA1F /* ViewController.m */; };
@@ -38,6 +39,8 @@
 /* Begin PBXFileReference section */
 		B0873F0B1BD370C700D2F4D5 /* TYShowAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYShowAlertView.h; sourceTree = "<group>"; };
 		B0873F0C1BD370C700D2F4D5 /* TYShowAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYShowAlertView.m; sourceTree = "<group>"; };
+		D324A56E1BD8D13200BCBC6F /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		D324A56F1BD8D13200BCBC6F /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		D358541E1B9532D700B5FA1F /* TYAlertControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TYAlertControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35854221B9532D700B5FA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D35854231B9532D700B5FA1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 				D35854A31B953F3D00B5FA1F /* TYAlertController */,
 				D35854251B9532D700B5FA1F /* AppDelegate.h */,
 				D35854261B9532D700B5FA1F /* AppDelegate.m */,
+				D324A56E1BD8D13200BCBC6F /* UIImage+ImageEffects.h */,
+				D324A56F1BD8D13200BCBC6F /* UIImage+ImageEffects.m */,
 				D35854281B9532D700B5FA1F /* ViewController.h */,
 				D35854291B9532D700B5FA1F /* ViewController.m */,
 				D358542B1B9532D700B5FA1F /* Main.storyboard */,
@@ -287,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D358542A1B9532D700B5FA1F /* ViewController.m in Sources */,
+				D324A5701BD8D13200BCBC6F /* UIImage+ImageEffects.m in Sources */,
 				D35854B51B95B7BB00B5FA1F /* TYBaseAnimation.m in Sources */,
 				D3C1A9761B9D1A83009738B0 /* TYAlertView.m in Sources */,
 				D37A91E11B9E7B6000C6661A /* UIView+TYAutoLayout.m in Sources */,

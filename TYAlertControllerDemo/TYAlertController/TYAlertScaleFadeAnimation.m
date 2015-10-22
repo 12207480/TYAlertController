@@ -12,7 +12,7 @@
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.35;
+    return 0.3;
 }
 
 - (void)presentAnimateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
@@ -24,7 +24,6 @@
     switch (alertController.preferredStyle) {
         case TYAlertControllerStyleAlert:
             alertController.alertView.alpha = 0.0;
-            alertController.alertView.center = alertController.view.center;
             alertController.alertView.transform = CGAffineTransformMakeScale(0.1, 0.1);
             break;
         case TYAlertControllerStyleActionSheet:

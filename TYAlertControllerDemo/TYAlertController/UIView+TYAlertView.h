@@ -24,13 +24,21 @@
 
 - (void)showInController:(UIViewController *)viewController preferredStyle:(TYAlertControllerStyle)preferredStyle;
 
+// backgoundTapDismissEnable default NO
+- (void)showInController:(UIViewController *)viewController preferredStyle:(TYAlertControllerStyle)preferredStyle backgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable;
+
 - (void)showInController:(UIViewController *)viewController preferredStyle:(TYAlertControllerStyle)preferredStyle transitionAnimation:(TYAlertTransitionAnimation)transitionAnimation;
+
+- (void)showInController:(UIViewController *)viewController preferredStyle:(TYAlertControllerStyle)preferredStyle transitionAnimation:(TYAlertTransitionAnimation)transitionAnimation backgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable;
 
 - (void)hideInController;
 
 #pragma mark - show in window
 
 - (void)showInWindow;
+
+// backgoundTapDismissEnable default NO
+- (void)showInWindowWithBackgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable;
 
 - (void)showInWindowWithOriginY:(CGFloat)OriginY;
 

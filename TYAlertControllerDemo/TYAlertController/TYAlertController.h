@@ -33,7 +33,7 @@ typedef NS_ENUM(NSInteger, TYAlertTransitionAnimation) {
 
 @property (nonatomic, assign, readonly) Class transitionAnimationClass;
 
-@property (nonatomic, assign) BOOL backgoundTapDismissEnable;  // default YES
+@property (nonatomic, assign) BOOL backgoundTapDismissEnable;  // default NO
 
 @property (nonatomic, assign) CGFloat alertViewOriginY;  // default center Y
 

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "UIView+TYAlertView.h"
+#import "UIImage+ImageEffects.h"
 
 @interface ViewController ()
 
@@ -46,11 +47,16 @@
     [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         
     }];
-    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        
-    }];
+//    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+//        
+//    }];
     
     TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleAlert];
+    
+    UIImage *image = [UIImage snapshotImageWithView:self.view];
+    alertController.backgroundView = [[UIImageView alloc]initWithImage:[image applyTintEffectWithColor:[UIColor clearColor]]];
+    
+    //alertController.alertViewOriginY = 60;
     [self presentViewController:alertController animated:YES completion:nil];
 }
 - (IBAction)showActionSheet:(id)sender {
@@ -75,9 +81,9 @@
     
     UIView *redView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
     redView.backgroundColor = [UIColor redColor];
-    [redView showInWindowWithOriginY:60];
+    //[redView showInWindowWithBackgoundTapDismissEnable:YES];
     //[redView showInController:self];
-    //[TYShowAlertView showAlertViewWithView:redView originY:60];
+    [TYShowAlertView showAlertViewWithView:redView originY:60 backgoundTapDismissEnable:YES];
 }
 
 - (void)didReceiveMemoryWarning {

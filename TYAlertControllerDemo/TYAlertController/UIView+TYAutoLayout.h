@@ -23,6 +23,8 @@
 
 - (void)addConstarintEqualWithView:(UIView *)view widthToView:(UIView *)wView heightToView:(UIView *)hView;
 
+- (NSLayoutConstraint *)addConstraintCenterYToView:(UIView *)yView constant:(CGFloat)constant;
+
 - (void)addConstraintCenterXToView:(UIView *)xView CenterYToView:(UIView *)yView;
 
 - (void)removeConstraintWithAttribte:(NSLayoutAttribute)attr;
