@@ -28,6 +28,7 @@
     if (self = [super init]) {
         _title = title;
         _style = style;
+        _handler = handler;
         _enabled = YES;
         
     }
@@ -59,6 +60,7 @@
 
 // button content View
 @property (nonatomic, weak) UIView *buttonContentView;
+@property (nonatomic, weak) NSLayoutConstraint *buttonTopConstraint;
 @property (nonatomic, strong) NSMutableArray *buttons;
 @property (nonatomic, strong) NSMutableArray *actions;
 
@@ -221,6 +223,11 @@
     [_buttons addObject:button];
     [_actions addObject:action];
     
+    if (_buttons.count == 1) {
+        [self layoutContentViews];
+        [self layoutTextLabels];
+    }
+    
     [self layoutButtons];
 }
 
@@ -261,6 +268,7 @@
 - (void)layoutContentViews
 {
     if (!_textContentView.translatesAutoresizingMaskIntoConstraints) {
+        // layout done
         return;
     }
     // textContentView
@@ -277,7 +285,7 @@
     // buttonContentView
     _buttonContentView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    [self addConstarintWithTopView:_textFeildContentView toBottomView:_buttonContentView constarint:_contentViewSpace];
+    _buttonTopConstraint = [self addConstarintWithTopView:_textFeildContentView toBottomView:_buttonContentView constarint:0];
     
     [self addConstarintWithView:_buttonContentView topView:nil leftView:self bottomView:self rightView:self edageInset:UIEdgeInsetsMake(0, _buttonContentViewEdge, -_contentViewSpace, -_buttonContentViewEdge)];
 }
@@ -285,6 +293,7 @@
 - (void)layoutTextLabels
 {
     if (!_titleLable.translatesAutoresizingMaskIntoConstraints && !_messageLabel.translatesAutoresizingMaskIntoConstraints) {
+        // layout done
         return;
     }
     // title
@@ -301,6 +310,7 @@
 {
     UIButton *button = _buttons.lastObject;
     if (_buttons.count == 1) {
+        _buttonTopConstraint.constant = -_contentViewSpace;
         [_buttonContentView addConstraintToView:button edageInset:UIEdgeInsetsZero];
         [button addConstarintWidth:0 height:_buttonHeight];
     }else if (_buttons.count == 2) {
@@ -369,7 +379,7 @@
         action.handler(action);
     }
     
-    [self.viewController dismissViewControllerAnimated:YES completion:nil];
+    [self hideView];
 }
 
 - (void)dealloc

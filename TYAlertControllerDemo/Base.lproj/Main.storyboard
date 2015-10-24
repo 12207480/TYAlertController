@@ -27,7 +27,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yfr-BX-DRT">
-                                <rect key="frame" x="237" y="237" width="127" height="30"/>
+                                <rect key="frame" x="237" y="270" width="127" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -72,11 +72,11 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="showAlertView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N4f-R7-iby"/>
+                                    <action selector="showAlertViewAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KD8-s9-03g"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbc-5y-GLg">
-                                <rect key="frame" x="255" y="165" width="91" height="30"/>
+                                <rect key="frame" x="255" y="158" width="91" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -92,11 +92,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="showActionSheet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6ok-Ne-kuo"/>
+                                    <action selector="showActionSheetAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2zn-h5-WOy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WY-V3-iTv">
-                                <rect key="frame" x="229.5" y="317" width="142" height="30"/>
+                                <rect key="frame" x="229" y="350" width="142" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -110,7 +110,33 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="showAlertViewInWindow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PKv-Os-aIC"/>
+                                    <action selector="showAlertViewInWindowAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JP9-Fw-wZs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4z7-Ic-djO">
+                                <rect key="frame" x="230" y="214" width="140" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7W3-g0-HlF"/>
+                                    <constraint firstAttribute="width" constant="91" id="X9c-NO-6FL"/>
+                                    <constraint firstAttribute="width" constant="140" id="wO9-1P-dv3"/>
+                                </constraints>
+                                <state key="normal" title="blurEffectAlertView">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="X9c-NO-6FL"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="blurEffectAlertViewAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yMK-PD-pF4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -121,16 +147,24 @@
                             <constraint firstAttribute="trailing" secondItem="k0k-Qy-0Gy" secondAttribute="trailing" id="8ry-Au-szq"/>
                             <constraint firstItem="Yfr-BX-DRT" firstAttribute="top" secondItem="Pbc-5y-GLg" secondAttribute="bottom" constant="42" id="9NA-YE-ipl"/>
                             <constraint firstItem="k0k-Qy-0Gy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Abd-iC-uZ3"/>
+                            <constraint firstItem="4z7-Ic-djO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Avw-oo-VhF"/>
                             <constraint firstItem="k0k-Qy-0Gy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="N7f-Z7-qps"/>
                             <constraint firstItem="Yfr-BX-DRT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SDo-Pv-z7k"/>
+                            <constraint firstItem="4z7-Ic-djO" firstAttribute="top" secondItem="Pbc-5y-GLg" secondAttribute="bottom" constant="26" id="T0j-64-O2J"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="k0k-Qy-0Gy" secondAttribute="bottom" id="VGn-hG-lI4"/>
-                            <constraint firstItem="Pbc-5y-GLg" firstAttribute="top" secondItem="vCS-SU-E0R" secondAttribute="bottom" constant="35" id="XMM-Dk-17g"/>
+                            <constraint firstItem="Yfr-BX-DRT" firstAttribute="top" secondItem="4z7-Ic-djO" secondAttribute="bottom" constant="26" id="WK2-CA-DMO"/>
+                            <constraint firstItem="Pbc-5y-GLg" firstAttribute="top" secondItem="vCS-SU-E0R" secondAttribute="bottom" constant="28" id="XMM-Dk-17g"/>
                             <constraint firstItem="k0k-Qy-0Gy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g1Y-r6-VZe"/>
                             <constraint firstItem="1WY-V3-iTv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g2R-k6-tZu"/>
                             <constraint firstItem="vCS-SU-E0R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="gTK-jF-eL0"/>
                             <constraint firstAttribute="centerX" secondItem="Pbc-5y-GLg" secondAttribute="centerX" id="mBu-C3-nZu"/>
                             <constraint firstAttribute="centerX" secondItem="vCS-SU-E0R" secondAttribute="centerX" id="tYU-co-tHf"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9NA-YE-ipl"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -62,7 +62,7 @@
 
 - (void)hideInWindow
 {
-    if (self.superview && [self.superview isKindOfClass:[TYShowAlertView class]]) {
+    if ([self isShowInWindow]) {
         [(TYShowAlertView *)self.superview hide];
     }else {
         NSLog(@"self.superview is nil, or isn't TYShowAlertView");
@@ -104,11 +104,41 @@
 
 - (void)hideInController
 {
-    UIViewController *viewController = self.viewController;
-    if (viewController && [viewController isKindOfClass:[TYAlertController class]]) {
-        [(TYAlertController *)viewController dismissViewControllerAnimated:YES];
+    if ([self isShowInAlertController]) {
+        [(TYAlertController *)self.viewController dismissViewControllerAnimated:YES];
     }else {
         NSLog(@"self.viewController is nil, or isn't TYAlertController");
+    }
+}
+
+#pragma mark - hide
+
+- (BOOL)isShowInAlertController
+{
+    UIViewController *viewController = self.viewController;
+    if (viewController && [viewController isKindOfClass:[TYAlertController class]]) {
+        return YES;
+    }
+    return NO;
+    
+}
+
+- (BOOL)isShowInWindow
+{
+    if (self.superview && [self.superview isKindOfClass:[TYShowAlertView class]]) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)hideView
+{
+    if ([self isShowInAlertController]) {
+        [self hideInController];
+    }else if ([self isShowInWindow]) {
+        [self hideInWindow];
+    }else {
+        NSLog(@"self.viewController is nil, or isn't TYAlertController,or self.superview is nil, or isn't TYShowAlertView");
     }
 }
 

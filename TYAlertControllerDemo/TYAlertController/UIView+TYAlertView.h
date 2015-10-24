@@ -31,8 +31,6 @@
 
 - (void)showInController:(UIViewController *)viewController preferredStyle:(TYAlertControllerStyle)preferredStyle transitionAnimation:(TYAlertTransitionAnimation)transitionAnimation backgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable;
 
-- (void)hideInController;
-
 #pragma mark - show in window
 
 - (void)showInWindow;
@@ -43,6 +41,14 @@
 - (void)showInWindowWithOriginY:(CGFloat)OriginY;
 
 - (void)showInWindowWithOriginY:(CGFloat)OriginY backgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable;
+
+
+#pragma mark - hide
+
+// this will judge and call right method
+- (void)hideView;
+
+- (void)hideInController;
 
 - (void)hideInWindow;
 

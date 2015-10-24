@@ -11,7 +11,6 @@
 #import "UIImage+ImageEffects.h"
 
 @interface ViewController ()
-
 @end
 
 @implementation ViewController
@@ -19,45 +18,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    //UIAlertController
 }
 
 
-- (IBAction)showAlertView:(id)sender {
+- (IBAction)showAlertViewAction:(id)sender {
     
     TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"A message should be a short, complete sentence."];
-
-    __typeof (self) __weak weakSelf = self;
-
+    
     [alertView addAction:[TYAlertAction actionWithTitle:@"取消" style:TYAlertActionStyleCancle handler:^(TYAlertAction *action) {
-        
+        NSLog(@"%@",action.title);
     }]];
-//
-//    [alertView addAction:[TYAlertAction actionWithTitle:@"确定" style:TYAlertActionStyleDestructive handler:^(TYAlertAction *action) {
-//        
-//    }]];
+
+    [alertView addAction:[TYAlertAction actionWithTitle:@"确定" style:TYAlertActionStyleDestructive handler:^(TYAlertAction *action) {
+        NSLog(@"%@",action.title);
+    }]];
     
 //    [alertView addAction:[TYAlertAction actionWithTitle:@"默认1" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
 //        
 //    }]];
     
 //    
-//    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-//        
-//    }];
-//    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-//        
-//    }];
+    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"请输入账号";
+    }];
+    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"请输入密码";
+    }];
     
     TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleAlert];
-    
-    UIImage *image = [UIImage snapshotImageWithView:self.view];
-    alertController.backgroundView = [[UIImageView alloc]initWithImage:[image applyLightEffect]];
     
     //alertController.alertViewOriginY = 60;
     [self presentViewController:alertController animated:YES completion:nil];
 }
-- (IBAction)showActionSheet:(id)sender {
+- (IBAction)showActionSheetAction:(id)sender {
     
     TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"A message should be a short, complete sentence."];
     
@@ -79,13 +72,42 @@
     TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleActionSheet];
     [self presentViewController:alertController animated:YES completion:nil];
 }
-- (IBAction)showAlertViewInWindow:(id)sender {
+
+- (IBAction)blurEffectAlertViewAction:(id)sender {
+    TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"This is a blur effect on background, is beautiful effect"];
     
-    UIView *redView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
-    redView.backgroundColor = [UIColor redColor];
+    [alertView addAction:[TYAlertAction actionWithTitle:@"取消" style:TYAlertActionStyleCancle handler:^(TYAlertAction *action) {
+        
+    }]];
+    
+    TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleAlert];
+    
+    UIImage *blurImage =[[UIImage snapshotImageWithView:self.view] applyLightEffect];
+    alertController.backgroundView = [[UIImageView alloc]initWithImage:blurImage];
+    
+    //alertController.alertViewOriginY = 60;
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+
+- (IBAction)showAlertViewInWindowAction:(id)sender {
+    
+//    UIView *redView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
+//    redView.backgroundColor = [UIColor redColor];
     //[redView showInWindowWithBackgoundTapDismissEnable:YES];
     //[redView showInController:self];
-    [TYShowAlertView showAlertViewWithView:redView originY:60 backgoundTapDismissEnable:YES];
+    
+    TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"A message should be a short, complete sentence."];
+    
+    [alertView addAction:[TYAlertAction actionWithTitle:@"取消" style:TYAlertActionStyleCancle handler:^(TYAlertAction *action) {
+        
+    }]];
+    
+    [alertView addAction:[TYAlertAction actionWithTitle:@"确定" style:TYAlertActionStyleDestructive handler:^(TYAlertAction *action) {
+        
+    }]];
+    
+    [TYShowAlertView showAlertViewWithView:alertView originY:200 backgoundTapDismissEnable:YES];
 }
 
 - (void)didReceiveMemoryWarning {

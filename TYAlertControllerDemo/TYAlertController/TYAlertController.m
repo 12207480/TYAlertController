@@ -229,7 +229,6 @@
         // height
         [_alertView addConstarintWidth:0 height:CGRectGetHeight(_alertView.frame)];
     }
-
 }
 
 - (void)dismissViewControllerAnimated:(BOOL)animated
