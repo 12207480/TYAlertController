@@ -138,10 +138,17 @@
     if (_backgroundView == nil) {
         _backgroundView = backgroundView;
     } else if (_backgroundView != backgroundView) {
-        [_backgroundView removeFromSuperview];
-        _backgroundView = backgroundView;
-        [self addBackgroundView];
-        [self addSingleTapGesture];
+        backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view insertSubview:backgroundView aboveSubview:_backgroundView];
+        [self.view addConstraintToView:backgroundView edageInset:UIEdgeInsetsZero];
+        backgroundView.alpha = 0;
+        [UIView animateWithDuration:0.3 animations:^{
+            backgroundView.alpha = 1;
+        } completion:^(BOOL finished) {
+            [_backgroundView removeFromSuperview];
+            _backgroundView = backgroundView;
+            [self addSingleTapGesture];
+        }];
     }
 }
 

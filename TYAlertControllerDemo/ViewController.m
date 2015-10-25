@@ -11,7 +11,6 @@
 #import "UIImage+ImageEffects.h"
 
 @interface ViewController ()
-
 @end
 
 @implementation ViewController
@@ -56,18 +55,18 @@
     TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"A message should be a short, complete sentence."];
     
     [alertView addAction:[TYAlertAction actionWithTitle:@"默认2" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
-    
+        NSLog(@"%@",action.title);
     }]];
     
     [alertView addAction:[TYAlertAction actionWithTitle:@"默认1" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
-        
+        NSLog(@"%@",action.title);
     }]];
     
     [alertView addAction:[TYAlertAction actionWithTitle:@"删除" style:TYAlertActionStyleDestructive handler:^(TYAlertAction *action) {
-        
+        NSLog(@"%@",action.title);
     }]];
     [alertView addAction:[TYAlertAction actionWithTitle:@"取消" style:TYAlertActionStyleCancle handler:^(TYAlertAction *action) {
-        
+        NSLog(@"%@",action.title);
     }]];
     
     TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleActionSheet];
@@ -78,17 +77,34 @@
     TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"This is a blur effect on background, is beautiful effect"];
     
     [alertView addAction:[TYAlertAction actionWithTitle:@"取消" style:TYAlertActionStyleCancle handler:^(TYAlertAction *action) {
-        
+        NSLog(@"%@",action.title);
     }]];
     
     TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleAlert];
     
-    UIImage *blurImage =[[UIImage snapshotImageWithView:self.view] applyLightEffect];
-    UIImageView *blurImageView = [[UIImageView alloc]initWithImage:blurImage];
-    alertController.backgroundView = blurImageView;
+    // time consuming task ,so use dispatch_async .很耗时的操作
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        // 处理耗时操作的代码块...
+        UIImage *blurImage =[[UIImage snapshotImageWithView:self.view] applyLightEffect];
+        //通知主线程刷新
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIImageView *blurImageView = [[UIImageView alloc]initWithImage:blurImage];
+            alertController.backgroundView = blurImageView;
+        });
+        
+    });
+
+//    UIImage *blurImage =[[UIImage snapshotImageWithView:self.view] applyLightEffect];
+//    UIImageView *blurImageView = [[UIImageView alloc]initWithImage:blurImage];
+//    alertController.backgroundView = blurImageView;
     
     //alertController.alertViewOriginY = 60;
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+
+- (IBAction)costomAlertViewAction:(id)sender {
+    
 }
 
 
