@@ -129,8 +129,20 @@
         _backgroundView = backgroundView;
     }
     _backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview:_backgroundView];
+    [self.view insertSubview:_backgroundView atIndex:0];
     [self.view addConstraintToView:_backgroundView edageInset:UIEdgeInsetsZero];
+}
+
+- (void)setBackgroundView:(UIView *)backgroundView
+{
+    if (_backgroundView == nil) {
+        _backgroundView = backgroundView;
+    } else if (_backgroundView != backgroundView) {
+        [_backgroundView removeFromSuperview];
+        _backgroundView = backgroundView;
+        [self addBackgroundView];
+        [self addSingleTapGesture];
+    }
 }
 
 - (void)addSingleTapGesture
@@ -140,7 +152,7 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
     singleTap.enabled = _backgoundTapDismissEnable;
   
-    [self.backgroundView addGestureRecognizer:singleTap];
+    [_backgroundView addGestureRecognizer:singleTap];
     _singleTap = singleTap;
 }
 

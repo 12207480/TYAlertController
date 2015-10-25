@@ -80,22 +80,19 @@
     if (_backgroundView == nil) {
         UIView *backgroundView = [[UIView alloc]initWithFrame:self.bounds];
         backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
-        [self addSubview:backgroundView];
         _backgroundView = backgroundView;
-        _backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addConstraintToView:_backgroundView edageInset:UIEdgeInsetsZero];
     }
+    [self insertSubview:_backgroundView atIndex:0];
+    _backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addConstraintToView:_backgroundView edageInset:UIEdgeInsetsZero];
 }
 
 - (void)setBackgroundView:(UIView *)backgroundView
 {
     if (_backgroundView != backgroundView) {
         [_backgroundView removeFromSuperview];
-        
-        [self addSubview:backgroundView];
         _backgroundView = backgroundView;
-        _backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addConstraintToView:_backgroundView edageInset:UIEdgeInsetsZero];
+        [self addBackgroundView];
         [self addSingleGesture];
     }
 }

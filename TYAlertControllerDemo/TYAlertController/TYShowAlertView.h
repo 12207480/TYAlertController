@@ -11,7 +11,7 @@
 @interface TYShowAlertView : UIView
 
 @property (nonatomic, weak, readonly) UIView *alertView;
-@property (nonatomic, weak) UIView *backgroundView;
+@property (nonatomic, strong) UIView *backgroundView;
 
 @property (nonatomic, assign) BOOL backgoundTapDismissEnable;  // default NO
 @property (nonatomic, assign) CGFloat alertViewOriginY;  // default center Y

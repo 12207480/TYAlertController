@@ -11,6 +11,7 @@
 #import "UIImage+ImageEffects.h"
 
 @interface ViewController ()
+
 @end
 
 @implementation ViewController
@@ -83,7 +84,8 @@
     TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleAlert];
     
     UIImage *blurImage =[[UIImage snapshotImageWithView:self.view] applyLightEffect];
-    alertController.backgroundView = [[UIImageView alloc]initWithImage:blurImage];
+    UIImageView *blurImageView = [[UIImageView alloc]initWithImage:blurImage];
+    alertController.backgroundView = blurImageView;
     
     //alertController.alertViewOriginY = 60;
     [self presentViewController:alertController animated:YES completion:nil];
