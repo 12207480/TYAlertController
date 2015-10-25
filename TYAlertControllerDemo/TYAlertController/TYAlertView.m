@@ -66,6 +66,7 @@
 
 @end
 
+#define kAlertViewWidth 280
 #define kContentViewEdge 15
 #define kContentViewSpace 15
 
@@ -120,6 +121,7 @@
 - (void)configureProperty
 {
     self.backgroundColor = [UIColor whiteColor];
+    _alertViewWidth = kAlertViewWidth;
     _contentViewSpace = kContentViewSpace;
     
     _textLabelSpace = kTextLabelSpace;
@@ -271,6 +273,10 @@
         // layout done
         return;
     }
+    if (_alertViewWidth) {
+        [self addConstarintWidth:_alertViewWidth height:0];
+    }
+    
     // textContentView
     _textContentView.translatesAutoresizingMaskIntoConstraints = NO;
     

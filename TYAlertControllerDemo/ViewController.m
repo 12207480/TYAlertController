@@ -104,7 +104,11 @@
 
 
 - (IBAction)costomAlertViewAction:(id)sender {
-    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"message" message:@"this is system alertController" preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 

@@ -176,7 +176,8 @@
     self.modalPresentationStyle = UIModalPresentationCustom;
     self.transitioningDelegate = self;
     _backgoundTapDismissEnable = NO;
-    _alertViewEdging = 15;
+    _alertStyleEdging = 15;
+    _actionSheetStyleEdging = 0;
 }
 
 - (void)configureAlertView
@@ -200,17 +201,12 @@
     }
 }
 
-#pragma mark - layout 
-
-- (void)layoutAlertStyleView
+- (void)configureAlertViewWidth
 {
-    // center X
-    [self.view addConstraintCenterXToView:_alertView CenterYToView:nil];
-    
     // width, height
     if (!CGSizeEqualToSize(_alertView.frame.size,CGSizeZero)) {
         [_alertView addConstarintWidth:CGRectGetWidth(_alertView.frame) height:CGRectGetHeight(_alertView.frame)];
-
+        
     }else {
         BOOL findAlertViewWidthConstraint = NO;
         for (NSLayoutConstraint *constraint in _alertView.constraints) {
@@ -221,9 +217,19 @@
         }
         
         if (!findAlertViewWidthConstraint) {
-            [_alertView addConstarintWidth:CGRectGetWidth(self.view.frame)-2*_alertViewEdging height:0];
+            [_alertView addConstarintWidth:CGRectGetWidth(self.view.frame)-2*_alertStyleEdging height:0];
         }
     }
+}
+
+#pragma mark - layout 
+
+- (void)layoutAlertStyleView
+{
+    // center X
+    [self.view addConstraintCenterXToView:_alertView CenterYToView:nil];
+    
+    [self configureAlertViewWidth];
     
     // top Y
     _alertViewCenterYConstraint = [self.view addConstraintCenterYToView:_alertView constant:0];
@@ -242,7 +248,7 @@
     // center X
     [self.view addConstraintCenterXToView:_alertView CenterYToView:nil];
     
-    [self.view addConstarintWithView:_alertView topView:nil leftView:self.view bottomView:self.view rightView:self.view edageInset:UIEdgeInsetsZero];
+    [self.view addConstarintWithView:_alertView topView:nil leftView:self.view bottomView:self.view rightView:self.view edageInset:UIEdgeInsetsMake(0, _actionSheetStyleEdging, 0, -_actionSheetStyleEdging)];
     
     if (CGRectGetHeight(_alertView.frame) > 0) {
         // height

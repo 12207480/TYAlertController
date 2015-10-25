@@ -30,6 +30,9 @@ typedef NS_ENUM(NSUInteger, TYAlertActionStyle) {
 @property (nonatomic, weak, readonly) UILabel *titleLable;
 @property (nonatomic, weak, readonly) UILabel *messageLabel;
 
+// default 280, if 0 don't add width constraint,
+@property (nonatomic, assign) CGFloat alertViewWidth;
+
 // contentView space custom
 @property (nonatomic, assign) CGFloat contentViewSpace;
 

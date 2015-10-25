@@ -37,7 +37,8 @@ typedef NS_ENUM(NSInteger, TYAlertTransitionAnimation) {
 
 @property (nonatomic, assign) CGFloat alertViewOriginY;  // default center Y
 
-@property (nonatomic, assign) CGFloat alertViewEdging; // only alertStyle, when width frame equal to 0,or no width constraint ,this proprty will use, default to 15 
+@property (nonatomic, assign) CGFloat alertStyleEdging; //  when width frame equal to 0,or no width constraint ,this proprty will use, default to 15 edge
+@property (nonatomic, assign) CGFloat actionSheetStyleEdging; // default 0
 
 @property (nonatomic, copy) void (^dismissComplete)(void); // dismiss controller completed block
 
