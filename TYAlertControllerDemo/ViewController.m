@@ -10,6 +10,7 @@
 #import "UIView+TYAlertView.h"
 #import "TYAlertController+BlurEffects.h"
 #import "SettingModelView.h"
+#import "ShareView.h"
 
 @interface ViewController ()
 @end
@@ -75,13 +76,9 @@
 }
 
 - (IBAction)blurEffectAlertViewAction:(id)sender {
-    TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"This is a blur effect on background, is beautiful effect"];
+    ShareView *shareView = [ShareView createViewFromNib];
     
-    [alertView addAction:[TYAlertAction actionWithTitle:@"取消" style:TYAlertActionStyleCancle handler:^(TYAlertAction *action) {
-        NSLog(@"%@",action.title);
-    }]];
-    
-    TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleAlert];
+    TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:shareView preferredStyle:TYAlertControllerStyleAlert];
     
     // blur effect
     [alertController setBlurEffectWithView:self.view];
@@ -95,7 +92,7 @@
     // customview from xib
     SettingModelView *settingModelView = [SettingModelView createViewFromNib];
     
-    // fisrt way to show
+    // fisrt way to show ,use UIView Category
 //    [settingModelView showInController:self preferredStyle:TYAlertControllerStyleActionSheet backgoundTapDismissEnable:YES];
     
     // second way to show
@@ -117,7 +114,7 @@
         
     }]];
     
-    // first way to show
+    // first way to show ,use UIView Category
     [alertView showInWindowWithOriginY:200 backgoundTapDismissEnable:YES];
     
     // second way to show
@@ -125,7 +122,10 @@
 }
 
 - (IBAction)customViewInWindowAction:(id)sender {
-    
+    ShareView *shareView = [ShareView createViewFromNib];
+
+    // use UIView Category
+    [shareView showInWindow];
 }
 
 - (void)didReceiveMemoryWarning {
