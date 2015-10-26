@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B0873F0D1BD370C700D2F4D5 /* TYShowAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0873F0C1BD370C700D2F4D5 /* TYShowAlertView.m */; settings = {ASSET_TAGS = (); }; };
-		B08FD7D01BD905EF00B83FF5 /* screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B08FD7CF1BD905EF00B83FF5 /* screen.jpg */; settings = {ASSET_TAGS = (); }; };
-		D324A5701BD8D13200BCBC6F /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = D324A56F1BD8D13200BCBC6F /* UIImage+ImageEffects.m */; settings = {ASSET_TAGS = (); }; };
+		B01448F01BDE4677009E0389 /* SettingModelView.m in Sources */ = {isa = PBXBuildFile; fileRef = B01448EF1BDE4677009E0389 /* SettingModelView.m */; };
+		B01448F21BDE4690009E0389 /* SettingModelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B01448F11BDE4690009E0389 /* SettingModelView.xib */; };
+		B01448F71BDE50C1009E0389 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B01448F61BDE50C1009E0389 /* UIImage+ImageEffects.m */; };
+		B01448FA1BDE51DB009E0389 /* TYAlertController+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B01448F91BDE51DB009E0389 /* TYAlertController+BlurEffects.m */; };
+		B0873F0D1BD370C700D2F4D5 /* TYShowAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0873F0C1BD370C700D2F4D5 /* TYShowAlertView.m */; };
+		B08FD7D01BD905EF00B83FF5 /* screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B08FD7CF1BD905EF00B83FF5 /* screen.jpg */; };
 		D35854241B9532D700B5FA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854231B9532D700B5FA1F /* main.m */; };
 		D35854271B9532D700B5FA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854261B9532D700B5FA1F /* AppDelegate.m */; };
 		D358542A1B9532D700B5FA1F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35854291B9532D700B5FA1F /* ViewController.m */; };
@@ -38,11 +41,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B01448EE1BDE4677009E0389 /* SettingModelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingModelView.h; sourceTree = "<group>"; };
+		B01448EF1BDE4677009E0389 /* SettingModelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingModelView.m; sourceTree = "<group>"; };
+		B01448F11BDE4690009E0389 /* SettingModelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingModelView.xib; sourceTree = "<group>"; };
+		B01448F51BDE50C1009E0389 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		B01448F61BDE50C1009E0389 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		B01448F81BDE51DB009E0389 /* TYAlertController+BlurEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TYAlertController+BlurEffects.h"; sourceTree = "<group>"; };
+		B01448F91BDE51DB009E0389 /* TYAlertController+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TYAlertController+BlurEffects.m"; sourceTree = "<group>"; };
 		B0873F0B1BD370C700D2F4D5 /* TYShowAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYShowAlertView.h; sourceTree = "<group>"; };
 		B0873F0C1BD370C700D2F4D5 /* TYShowAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYShowAlertView.m; sourceTree = "<group>"; };
 		B08FD7CF1BD905EF00B83FF5 /* screen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screen.jpg; sourceTree = "<group>"; };
-		D324A56E1BD8D13200BCBC6F /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
-		D324A56F1BD8D13200BCBC6F /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		D358541E1B9532D700B5FA1F /* TYAlertControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TYAlertControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35854221B9532D700B5FA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D35854231B9532D700B5FA1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,6 +99,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B01448F41BDE509A009E0389 /* Blur Effects */ = {
+			isa = PBXGroup;
+			children = (
+				B01448F81BDE51DB009E0389 /* TYAlertController+BlurEffects.h */,
+				B01448F91BDE51DB009E0389 /* TYAlertController+BlurEffects.m */,
+				B01448F51BDE50C1009E0389 /* UIImage+ImageEffects.h */,
+				B01448F61BDE50C1009E0389 /* UIImage+ImageEffects.m */,
+			);
+			path = "Blur Effects";
+			sourceTree = "<group>";
+		};
+		B03322B61BDCEC5000F778D4 /* customAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				B01448EE1BDE4677009E0389 /* SettingModelView.h */,
+				B01448EF1BDE4677009E0389 /* SettingModelView.m */,
+				B01448F11BDE4690009E0389 /* SettingModelView.xib */,
+			);
+			name = customAlertView;
+			sourceTree = "<group>";
+		};
 		D35854151B9532D700B5FA1F = {
 			isa = PBXGroup;
 			children = (
@@ -113,10 +142,10 @@
 			isa = PBXGroup;
 			children = (
 				D35854A31B953F3D00B5FA1F /* TYAlertController */,
+				B01448F41BDE509A009E0389 /* Blur Effects */,
+				B03322B61BDCEC5000F778D4 /* customAlertView */,
 				D35854251B9532D700B5FA1F /* AppDelegate.h */,
 				D35854261B9532D700B5FA1F /* AppDelegate.m */,
-				D324A56E1BD8D13200BCBC6F /* UIImage+ImageEffects.h */,
-				D324A56F1BD8D13200BCBC6F /* UIImage+ImageEffects.m */,
 				D35854281B9532D700B5FA1F /* ViewController.h */,
 				D35854291B9532D700B5FA1F /* ViewController.m */,
 				D358542B1B9532D700B5FA1F /* Main.storyboard */,
@@ -277,6 +306,7 @@
 				D358542D1B9532D700B5FA1F /* Main.storyboard in Resources */,
 				B08FD7D01BD905EF00B83FF5 /* screen.jpg in Resources */,
 				D35854321B9532D700B5FA1F /* LaunchScreen.xib in Resources */,
+				B01448F21BDE4690009E0389 /* SettingModelView.xib in Resources */,
 				D358542F1B9532D700B5FA1F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,7 +326,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D358542A1B9532D700B5FA1F /* ViewController.m in Sources */,
-				D324A5701BD8D13200BCBC6F /* UIImage+ImageEffects.m in Sources */,
+				B01448FA1BDE51DB009E0389 /* TYAlertController+BlurEffects.m in Sources */,
+				B01448F01BDE4677009E0389 /* SettingModelView.m in Sources */,
+				B01448F71BDE50C1009E0389 /* UIImage+ImageEffects.m in Sources */,
 				D35854B51B95B7BB00B5FA1F /* TYBaseAnimation.m in Sources */,
 				D3C1A9761B9D1A83009738B0 /* TYAlertView.m in Sources */,
 				D37A91E11B9E7B6000C6661A /* UIView+TYAutoLayout.m in Sources */,

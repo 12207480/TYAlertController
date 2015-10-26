@@ -27,15 +27,15 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yfr-BX-DRT">
-                                <rect key="frame" x="237" y="270" width="127" height="30"/>
+                                <rect key="frame" x="230" y="268" width="140" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="91" id="HNK-ek-Ch4"/>
-                                    <constraint firstAttribute="width" constant="127" id="gZw-9F-Seh"/>
+                                    <constraint firstAttribute="width" constant="140" id="gZw-9F-Seh"/>
                                     <constraint firstAttribute="height" constant="30" id="md1-KB-DEL"/>
                                 </constraints>
-                                <state key="normal" title="customAlertView">
+                                <state key="normal" title="customActionSheet">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -49,7 +49,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="costomAlertViewAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t7s-6Y-ycr"/>
+                                    <action selector="costomActonSheetAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aiV-5G-svA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCS-SU-E0R">
@@ -79,7 +79,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbc-5y-GLg">
-                                <rect key="frame" x="255" y="158" width="91" height="30"/>
+                                <rect key="frame" x="255" y="212" width="91" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -99,7 +99,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WY-V3-iTv">
-                                <rect key="frame" x="229" y="350" width="142" height="30"/>
+                                <rect key="frame" x="229" y="338" width="142" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -117,7 +117,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4z7-Ic-djO">
-                                <rect key="frame" x="230" y="214" width="140" height="30"/>
+                                <rect key="frame" x="230" y="156" width="140" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -142,11 +142,31 @@
                                     <action selector="blurEffectAlertViewAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yMK-PD-pF4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdy-Yw-9Yd">
+                                <rect key="frame" x="222" y="394" width="156" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="156" id="MRT-Wr-AXZ"/>
+                                    <constraint firstAttribute="height" constant="30" id="bUF-4s-Tdp"/>
+                                </constraints>
+                                <state key="normal" title="customViewInWindow"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="customViewInWindowAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R4A-2L-y6S"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1WY-V3-iTv" firstAttribute="top" secondItem="Yfr-BX-DRT" secondAttribute="bottom" constant="50" id="5eB-EE-r5Z"/>
+                            <constraint firstItem="Yfr-BX-DRT" firstAttribute="top" secondItem="Pbc-5y-GLg" secondAttribute="bottom" constant="26" id="2uA-9s-cd0"/>
+                            <constraint firstItem="1WY-V3-iTv" firstAttribute="top" secondItem="Yfr-BX-DRT" secondAttribute="bottom" constant="40" id="5eB-EE-r5Z"/>
+                            <constraint firstItem="gdy-Yw-9Yd" firstAttribute="top" secondItem="1WY-V3-iTv" secondAttribute="bottom" constant="26" id="6EW-lt-A1G"/>
                             <constraint firstAttribute="trailing" secondItem="k0k-Qy-0Gy" secondAttribute="trailing" id="8ry-Au-szq"/>
                             <constraint firstItem="Yfr-BX-DRT" firstAttribute="top" secondItem="Pbc-5y-GLg" secondAttribute="bottom" constant="42" id="9NA-YE-ipl"/>
                             <constraint firstItem="k0k-Qy-0Gy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Abd-iC-uZ3"/>
@@ -154,18 +174,24 @@
                             <constraint firstItem="k0k-Qy-0Gy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="N7f-Z7-qps"/>
                             <constraint firstItem="Yfr-BX-DRT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SDo-Pv-z7k"/>
                             <constraint firstItem="4z7-Ic-djO" firstAttribute="top" secondItem="Pbc-5y-GLg" secondAttribute="bottom" constant="26" id="T0j-64-O2J"/>
+                            <constraint firstItem="gdy-Yw-9Yd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T7x-xC-FFp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="k0k-Qy-0Gy" secondAttribute="bottom" id="VGn-hG-lI4"/>
                             <constraint firstItem="Yfr-BX-DRT" firstAttribute="top" secondItem="4z7-Ic-djO" secondAttribute="bottom" constant="26" id="WK2-CA-DMO"/>
                             <constraint firstItem="Pbc-5y-GLg" firstAttribute="top" secondItem="vCS-SU-E0R" secondAttribute="bottom" constant="28" id="XMM-Dk-17g"/>
+                            <constraint firstItem="4z7-Ic-djO" firstAttribute="top" secondItem="vCS-SU-E0R" secondAttribute="bottom" constant="26" id="dOh-xc-Qeq"/>
                             <constraint firstItem="k0k-Qy-0Gy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g1Y-r6-VZe"/>
                             <constraint firstItem="1WY-V3-iTv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g2R-k6-tZu"/>
                             <constraint firstItem="vCS-SU-E0R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="gTK-jF-eL0"/>
+                            <constraint firstItem="Pbc-5y-GLg" firstAttribute="top" secondItem="4z7-Ic-djO" secondAttribute="bottom" constant="26" id="kga-I8-ALT"/>
                             <constraint firstAttribute="centerX" secondItem="Pbc-5y-GLg" secondAttribute="centerX" id="mBu-C3-nZu"/>
                             <constraint firstAttribute="centerX" secondItem="vCS-SU-E0R" secondAttribute="centerX" id="tYU-co-tHf"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="T0j-64-O2J"/>
+                                <exclude reference="XMM-Dk-17g"/>
                                 <exclude reference="9NA-YE-ipl"/>
+                                <exclude reference="WK2-CA-DMO"/>
                             </mask>
                         </variation>
                     </view>
