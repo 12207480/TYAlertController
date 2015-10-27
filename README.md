@@ -12,8 +12,8 @@ Powerful, easy to use alertView or popView on controller and window, support blu
 ### Usage
 
 1.copy TYAlertController Folder to your project, if you want to have blur effect ,you need copy Blur Effects Folder to your project.<br>
-2. #import "UIView+TYAlertView.h", when you use it, if you want use blur effect, #import "TYAlertController+BlurEffects.h".
-
+2. #import "UIView+TYAlertView.h", when you use it, if you want use blur effect, #import "TYAlertController+BlurEffects.h".<br>
+3. you can use TYAlertController show in controller, or use TYShowAlertView show in window, or use Category UIView+TYAlertView convenient show alertview.
 ### usege demo
 
 * show in controller (tow way)
