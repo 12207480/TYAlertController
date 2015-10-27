@@ -87,6 +87,19 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+- (IBAction)dropdwonAnimationAction:(id)sender {
+    TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"This is a message, the alert view containt dropdwon animation. "];
+    
+    [alertView addAction:[TYAlertAction actionWithTitle:@"取消" style:TYAlertActionStyleCancle handler:^(TYAlertAction *action) {
+        NSLog(@"%@",action.title);
+    }]];
+    
+    TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleAlert transitionAnimation:TYAlertTransitionAnimationDropDown];
+    [self presentViewController:alertController animated:YES completion:nil];
+
+    // or show,use UIView Category
+    //[alertView showInController:self preferredStyle:TYAlertControllerStyleAlert transitionAnimation:TYAlertTransitionAnimationDropDown];
+}
 
 - (IBAction)costomActonSheetAction:(id)sender {
     // customview from xib

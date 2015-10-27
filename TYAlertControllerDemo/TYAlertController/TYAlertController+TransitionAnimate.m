@@ -9,6 +9,7 @@
 #import "TYAlertController.h"
 #import "TYAlertFadeAnimation.h"
 #import "TYAlertScaleFadeAnimation.h"
+#import "TYAlertDropDownAnimation.h"
 
 @implementation TYAlertController (TransitionAnimate)
 
@@ -21,6 +22,8 @@
             return [TYAlertFadeAnimation alertAnimationIsPresenting:YES];
         case TYAlertTransitionAnimationScaleFade:
             return [TYAlertScaleFadeAnimation alertAnimationIsPresenting:YES];
+        case TYAlertTransitionAnimationDropDown:
+            return [TYAlertDropDownAnimation alertAnimationIsPresenting:YES];
         case TYAlertTransitionAnimationCustom:
             return [self.class alertAnimationIsPresenting:YES preferredStyle:self.preferredStyle];
         default:
@@ -35,6 +38,8 @@
             return [TYAlertFadeAnimation alertAnimationIsPresenting:NO];
         case TYAlertTransitionAnimationScaleFade:
             return [TYAlertScaleFadeAnimation alertAnimationIsPresenting:NO];
+        case TYAlertTransitionAnimationDropDown:
+            return [TYAlertDropDownAnimation alertAnimationIsPresenting:NO];
         case TYAlertTransitionAnimationCustom:
             return [self.class alertAnimationIsPresenting:NO preferredStyle:self.preferredStyle];
         default:

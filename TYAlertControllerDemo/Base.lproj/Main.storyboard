@@ -27,7 +27,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yfr-BX-DRT">
-                                <rect key="frame" x="230" y="268" width="140" height="30"/>
+                                <rect key="frame" x="230" y="304" width="140" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -53,7 +53,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCS-SU-E0R">
-                                <rect key="frame" x="222" y="100" width="156" height="30"/>
+                                <rect key="frame" x="222" y="80" width="156" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -79,7 +79,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbc-5y-GLg">
-                                <rect key="frame" x="255" y="212" width="91" height="30"/>
+                                <rect key="frame" x="255" y="248" width="91" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -99,7 +99,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WY-V3-iTv">
-                                <rect key="frame" x="229" y="338" width="142" height="30"/>
+                                <rect key="frame" x="229" y="366" width="142" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -117,7 +117,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4z7-Ic-djO">
-                                <rect key="frame" x="230" y="156" width="140" height="30"/>
+                                <rect key="frame" x="230" y="136" width="140" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -143,7 +143,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdy-Yw-9Yd">
-                                <rect key="frame" x="222" y="394" width="156" height="30"/>
+                                <rect key="frame" x="222" y="422" width="156" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -160,6 +160,32 @@
                                     <action selector="customViewInWindowAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R4A-2L-y6S"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eW6-OK-8kA">
+                                <rect key="frame" x="230" y="192" width="140" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="91" id="D7q-Dl-FcW"/>
+                                    <constraint firstAttribute="height" constant="30" id="hBd-hI-ORF"/>
+                                    <constraint firstAttribute="width" constant="140" id="khf-YV-8E6"/>
+                                </constraints>
+                                <state key="normal" title="dropdownAnimation">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="D7q-Dl-FcW"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="dropdwonAnimationAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ALD-sJ-Ayh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -168,6 +194,7 @@
                             <constraint firstItem="1WY-V3-iTv" firstAttribute="top" secondItem="Yfr-BX-DRT" secondAttribute="bottom" constant="40" id="5eB-EE-r5Z"/>
                             <constraint firstItem="gdy-Yw-9Yd" firstAttribute="top" secondItem="1WY-V3-iTv" secondAttribute="bottom" constant="26" id="6EW-lt-A1G"/>
                             <constraint firstAttribute="trailing" secondItem="k0k-Qy-0Gy" secondAttribute="trailing" id="8ry-Au-szq"/>
+                            <constraint firstItem="Pbc-5y-GLg" firstAttribute="top" secondItem="eW6-OK-8kA" secondAttribute="bottom" constant="26" id="90E-AS-f3p"/>
                             <constraint firstItem="Yfr-BX-DRT" firstAttribute="top" secondItem="Pbc-5y-GLg" secondAttribute="bottom" constant="42" id="9NA-YE-ipl"/>
                             <constraint firstItem="k0k-Qy-0Gy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Abd-iC-uZ3"/>
                             <constraint firstItem="4z7-Ic-djO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Avw-oo-VhF"/>
@@ -175,13 +202,17 @@
                             <constraint firstItem="Yfr-BX-DRT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SDo-Pv-z7k"/>
                             <constraint firstItem="4z7-Ic-djO" firstAttribute="top" secondItem="Pbc-5y-GLg" secondAttribute="bottom" constant="26" id="T0j-64-O2J"/>
                             <constraint firstItem="gdy-Yw-9Yd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T7x-xC-FFp"/>
+                            <constraint firstItem="1WY-V3-iTv" firstAttribute="top" secondItem="Yfr-BX-DRT" secondAttribute="bottom" constant="32" id="UDZ-4u-gji"/>
+                            <constraint firstItem="eW6-OK-8kA" firstAttribute="top" secondItem="4z7-Ic-djO" secondAttribute="bottom" constant="26" id="V6b-6s-ZkB"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="k0k-Qy-0Gy" secondAttribute="bottom" id="VGn-hG-lI4"/>
                             <constraint firstItem="Yfr-BX-DRT" firstAttribute="top" secondItem="4z7-Ic-djO" secondAttribute="bottom" constant="26" id="WK2-CA-DMO"/>
                             <constraint firstItem="Pbc-5y-GLg" firstAttribute="top" secondItem="vCS-SU-E0R" secondAttribute="bottom" constant="28" id="XMM-Dk-17g"/>
+                            <constraint firstItem="eW6-OK-8kA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cd6-Td-Rb9"/>
                             <constraint firstItem="4z7-Ic-djO" firstAttribute="top" secondItem="vCS-SU-E0R" secondAttribute="bottom" constant="26" id="dOh-xc-Qeq"/>
                             <constraint firstItem="k0k-Qy-0Gy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g1Y-r6-VZe"/>
                             <constraint firstItem="1WY-V3-iTv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g2R-k6-tZu"/>
-                            <constraint firstItem="vCS-SU-E0R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="gTK-jF-eL0"/>
+                            <constraint firstItem="eW6-OK-8kA" firstAttribute="top" secondItem="Yfr-BX-DRT" secondAttribute="bottom" constant="26" id="g4P-fl-Fu3"/>
+                            <constraint firstItem="vCS-SU-E0R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="gTK-jF-eL0"/>
                             <constraint firstItem="Pbc-5y-GLg" firstAttribute="top" secondItem="4z7-Ic-djO" secondAttribute="bottom" constant="26" id="kga-I8-ALT"/>
                             <constraint firstAttribute="centerX" secondItem="Pbc-5y-GLg" secondAttribute="centerX" id="mBu-C3-nZu"/>
                             <constraint firstAttribute="centerX" secondItem="vCS-SU-E0R" secondAttribute="centerX" id="tYU-co-tHf"/>
@@ -189,9 +220,12 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="T0j-64-O2J"/>
+                                <exclude reference="g4P-fl-Fu3"/>
                                 <exclude reference="XMM-Dk-17g"/>
+                                <exclude reference="kga-I8-ALT"/>
                                 <exclude reference="9NA-YE-ipl"/>
                                 <exclude reference="WK2-CA-DMO"/>
+                                <exclude reference="5eB-EE-r5Z"/>
                             </mask>
                         </variation>
                     </view>

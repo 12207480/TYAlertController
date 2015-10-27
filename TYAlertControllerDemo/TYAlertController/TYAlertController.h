@@ -17,6 +17,7 @@ typedef NS_ENUM(NSInteger, TYAlertControllerStyle) {
 typedef NS_ENUM(NSInteger, TYAlertTransitionAnimation) {
     TYAlertTransitionAnimationFade = 0,
     TYAlertTransitionAnimationScaleFade,
+    TYAlertTransitionAnimationDropDown,
     TYAlertTransitionAnimationCustom
 };
 

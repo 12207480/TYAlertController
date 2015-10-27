@@ -11,7 +11,7 @@
 
 @interface TYBaseAnimation : NSObject<UIViewControllerAnimatedTransitioning>
 
-@property (nonatomic, assign, readonly) BOOL isPresenting;
+@property (nonatomic, assign, readonly) BOOL isPresenting; // present . dismiss
 
 + (instancetype)alertAnimationIsPresenting:(BOOL)isPresenting;
 
