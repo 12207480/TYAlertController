@@ -1,5 +1,5 @@
 # TYAlertController
-Powerful, easy to use alertView or popView on controller and window, support custom view and animation
+Powerful, easy to use alertView or popView on controller and window, support blur effect, custom view and custom animation, use aotolayout.
 
 ### ScreenShot
 ![image](https://github.com/12207480/TYAlertController/blob/master/screenshot/TYAlertControllerDemo.gif)
@@ -57,9 +57,9 @@ TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:
     }]];
     
     // first way to show ,use UIView Category
-    //[alertView showInWindowWithOriginY:200 backgoundTapDismissEnable:YES];
+    [alertView showInWindowWithOriginY:200 backgoundTapDismissEnable:YES];
     
     // second way to show
-    [TYShowAlertView showAlertViewWithView:alertView originY:200 backgoundTapDismissEnable:YES];
+   // [TYShowAlertView showAlertViewWithView:alertView originY:200 backgoundTapDismissEnable:YES];
 ```
 
