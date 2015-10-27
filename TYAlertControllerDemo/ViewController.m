@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+// contain this header
 #import "UIView+TYAlertView.h"
+// if you want blur efffect contain this 
 #import "TYAlertController+BlurEffects.h"
+
 #import "SettingModelView.h"
 #import "ShareView.h"
 
