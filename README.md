@@ -1,5 +1,5 @@
 # TYAlertController
-Powerful, easy to use alertView or popView on controller and window, support blur effect, custom view and custom animation, use aotolayout.
+Powerful, Easy to use alertView or popView on controller and window, support blur effect, custom view and custom animation, use aotolayout.
 
 ### ScreenShot
 ![image](https://github.com/12207480/TYAlertController/blob/master/screenshot/TYAlertControllerDemo.gif)
@@ -14,6 +14,8 @@ Powerful, easy to use alertView or popView on controller and window, support blu
 1.copy TYAlertController Folder to your project, if you want to have blur effect ,you need copy Blur Effects Folder to your project.<br>
 2. #import "UIView+TYAlertView.h", when you use it, if you want use blur effect, #import "TYAlertController+BlurEffects.h".<br>
 3. you can use TYAlertController show in controller, or use TYShowAlertView show in window, or use Category UIView+TYAlertView convenient show alertview.
+4. check Demo，it have more usefull usage and example.
+
 ### usege demo
 
 * show in controller (tow way)
@@ -62,4 +64,8 @@ TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:
     // second way to show
    // [TYShowAlertView showAlertViewWithView:alertView originY:200 backgoundTapDismissEnable:YES];
 ```
+
+### Contact
+if you find bug，please pull reqeust me <br>
+if you have good idea，contact me, Email:122074809@qq.com
 
