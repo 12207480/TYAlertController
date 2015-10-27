@@ -14,4 +14,52 @@ Powerful, easy to use alertView or popView on controller and window, support cus
 1.copy TYAlertController Folder to your project, if you want to have blur effect ,you need copy Blur Effects Folder to your project.<br>
 2. #import "UIView+TYAlertView.h", when you use it, if you want use blur effect, #import "TYAlertController+BlurEffects.h".
 
+### usege demo
+
+* show in controller (tow way)
+```objc
+TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"This is a message, the alert view containt text and textfiled. "];
+    
+    [alertView addAction:[TYAlertAction actionWithTitle:@"取消" style:TYAlertActionStyleCancle handler:^(TYAlertAction *action) {
+        NSLog(@"%@",action.title);
+    }]];
+
+    [alertView addAction:[TYAlertAction actionWithTitle:@"确定" style:TYAlertActionStyleDestructive handler:^(TYAlertAction *action) {
+        NSLog(@"%@",action.title);
+    }]];
+    
+    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"请输入账号";
+    }];
+    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"请输入密码";
+    }];
+    
+    // first way to show
+    TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleAlert];
+    //alertController.alertViewOriginY = 60;
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    // second way to show,use UIView Category
+    //[alertView showInController:self preferredStyle:TYAlertControllerStyleAlert];
+```
+
+* show in window (tow way)
+```objc
+TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"A message should be a short, but it can support long message"];
+    
+    [alertView addAction:[TYAlertAction actionWithTitle:@"取消" style:TYAlertActionStyleCancle handler:^(TYAlertAction *action) {
+        NSLog(@"%@",action.title);
+    }]];
+    
+    [alertView addAction:[TYAlertAction actionWithTitle:@"确定" style:TYAlertActionStyleDestructive handler:^(TYAlertAction *action) {
+        NSLog(@"%@",action.title);
+    }]];
+    
+    // first way to show ,use UIView Category
+    //[alertView showInWindowWithOriginY:200 backgoundTapDismissEnable:YES];
+    
+    // second way to show
+    [TYShowAlertView showAlertViewWithView:alertView originY:200 backgoundTapDismissEnable:YES];
+```
 
