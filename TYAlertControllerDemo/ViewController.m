@@ -45,10 +45,14 @@
         textField.placeholder = @"请输入密码";
     }];
     
+    // first way to show
     TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleAlert];
-    
     //alertController.alertViewOriginY = 60;
     [self presentViewController:alertController animated:YES completion:nil];
+    
+    // second way ,use UIView Category
+    //[alertView showInController:self preferredStyle:TYAlertControllerStyleAlert];
+    
 }
 - (IBAction)showActionSheetAction:(id)sender {
     
