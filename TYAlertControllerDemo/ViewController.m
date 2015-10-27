@@ -38,11 +38,6 @@
         NSLog(@"%@",action.title);
     }]];
     
-//    [alertView addAction:[TYAlertAction actionWithTitle:@"默认1" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
-//        
-//    }]];
-    
-//    
     [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.placeholder = @"请输入账号";
     }];
@@ -101,7 +96,7 @@
     [self presentViewController:alertController animated:YES completion:nil];
 
     // or show,use UIView Category
-    //[alertView showInController:self preferredStyle:TYAlertControllerStyleAlert transitionAnimation:TYAlertTransitionAnimationDropDown];
+    //[alertView showInController:self preferredStyle:TYAlertControllerStyleAlert];
 }
 
 - (IBAction)costomActonSheetAction:(id)sender {
