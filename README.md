@@ -1,5 +1,5 @@
 # TYAlertController
-Powerful, Easy to use alertView or popupView on controller and window, support blur effect, custom view and custom animation, use aotolayout.
+Powerful, Easy to use alertView or popupView on controller and window, support blur effect, custom view and custom animation, use aotolayout.support iphone, ipad .
 
 ### ScreenShot
 ![image](https://github.com/12207480/TYAlertController/blob/master/screenshot/TYAlertControllerDemo.gif)
