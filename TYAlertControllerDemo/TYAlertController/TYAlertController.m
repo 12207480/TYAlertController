@@ -125,7 +125,7 @@
 {
     if (_backgroundView == nil) {
         UIView *backgroundView = [[UIView alloc]init];
-        backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
+        backgroundView.backgroundColor = _backgroundColor;
         _backgroundView = backgroundView;
     }
     _backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -169,12 +169,16 @@
     _singleTap.enabled = backgoundTapDismissEnable;
 }
 
+#pragma mark - configure
+
 - (void)configureController
 {
     self.providesPresentationContextTransitionStyle = YES;
     self.definesPresentationContext = YES;
     self.modalPresentationStyle = UIModalPresentationCustom;
     self.transitioningDelegate = self;
+    
+    _backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
     _backgoundTapDismissEnable = NO;
     _alertStyleEdging = 15;
     _actionSheetStyleEdging = 0;

@@ -26,7 +26,8 @@ typedef NS_ENUM(NSInteger, TYAlertTransitionAnimation) {
 
 @property (nonatomic, strong, readonly) UIView *alertView;
 
-@property (nonatomic, strong) UIView *backgroundView; // set .backgroundColor,or you set coustom view to it
+@property (nonatomic, strong) UIColor *backgroundColor; // set backgroundColor
+@property (nonatomic, strong) UIView *backgroundView; // you set coustom view to it
 
 @property (nonatomic, assign, readonly) TYAlertControllerStyle preferredStyle;
 
