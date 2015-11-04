@@ -265,6 +265,11 @@
     [self layoutTextFeilds];
 }
 
+- (NSArray *)textFieldArray
+{
+    return _textFeilds;
+}
+
 #pragma mark - layout contenview
 
 - (void)layoutContentViews
@@ -381,11 +386,11 @@
 {
     TYAlertAction *action = _actions[button.tag - kButtonTagOffset];
     
+    [self hideView];
+    
     if (action.handler) {
         action.handler(action);
     }
-    
-    [self hideView];
 }
 
 - (void)dealloc

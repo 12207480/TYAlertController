@@ -33,9 +33,15 @@
     [alertView addAction:[TYAlertAction actionWithTitle:@"取消" style:TYAlertActionStyleCancle handler:^(TYAlertAction *action) {
         NSLog(@"%@",action.title);
     }]];
-
+    
+    // 弱引用alertView 否则 会循环引用
+    __typeof (alertView) __weak weakAlertView = alertView;
     [alertView addAction:[TYAlertAction actionWithTitle:@"确定" style:TYAlertActionStyleDestructive handler:^(TYAlertAction *action) {
+        
         NSLog(@"%@",action.title);
+        for (UITextField *textField in weakAlertView.textFieldArray) {
+            NSLog(@"%@",textField.text);
+        }
     }]];
     
     [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
