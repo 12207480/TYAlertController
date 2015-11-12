@@ -1,6 +1,11 @@
 # TYAlertController
 Powerful, Easy to use alertView or popupView on controller and window, support blur effect, custom view and custom animation, use aotolayout.support iphone, ipad .
 
+## CocoaPods
+```
+pod 'TYAlertController', '~> 1.0.0'
+```
+
 ### ScreenShot
 ![image](https://github.com/12207480/TYAlertController/blob/master/screenshot/TYAlertControllerDemo.gif)
 
