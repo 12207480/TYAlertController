@@ -25,7 +25,7 @@ pod 'TYAlertController', '~> 1.0.0'
 
 * show in controller (tow way)
 
- block 
+ **block 
 ```objc
 // alertView lifecycle block
 @property (strong, nonatomic) void (^viewWillShowHandler)(UIView *alertView);
@@ -37,7 +37,7 @@ pod 'TYAlertController', '~> 1.0.0'
 @property (nonatomic, copy) void (^dismissComplete)(void);
 ```
 
- demo
+**demo
 ```objc
 TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"This is a message, the alert view containt text and textfiled. "];
     
