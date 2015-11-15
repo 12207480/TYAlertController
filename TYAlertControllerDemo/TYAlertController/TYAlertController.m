@@ -285,9 +285,15 @@
 
 - (void)layoutActionSheetStyleView
 {
-    // center X
-    [self.view addConstraintCenterXToView:_alertView CenterYToView:nil];
+    // remove width constaint
+    for (NSLayoutConstraint *constraint in _alertView.constraints) {
+        if (constraint.firstAttribute == NSLayoutAttributeWidth) {
+            [_alertView removeConstraint: constraint];
+            break;
+        }
+    }
     
+    // add edge constraint
     [self.view addConstarintWithView:_alertView topView:nil leftView:self.view bottomView:self.view rightView:self.view edageInset:UIEdgeInsetsMake(0, _actionSheetStyleEdging, 0, -_actionSheetStyleEdging)];
     
     if (CGRectGetHeight(_alertView.frame) > 0) {

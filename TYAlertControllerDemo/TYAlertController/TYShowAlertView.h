@@ -17,7 +17,6 @@
 @property (nonatomic, assign) CGFloat alertViewOriginY;  // default center Y
 @property (nonatomic, assign) CGFloat alertViewEdging;   // default 15
 
-
 +(void)showAlertViewWithView:(UIView *)alertView;
 
 + (void)showAlertViewWithView:(UIView *)alertView backgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable;
