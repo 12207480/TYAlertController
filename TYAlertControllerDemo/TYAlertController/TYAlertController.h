@@ -42,7 +42,14 @@ typedef NS_ENUM(NSInteger, TYAlertTransitionAnimation) {
 @property (nonatomic, assign) CGFloat alertStyleEdging; //  when width frame equal to 0,or no width constraint ,this proprty will use, default to 15 edge
 @property (nonatomic, assign) CGFloat actionSheetStyleEdging; // default 0
 
-@property (nonatomic, copy) void (^dismissComplete)(void); // dismiss controller completed block
+// alertView lifecycle block
+@property (strong, nonatomic) void (^viewWillShowHandler)(UIView *alertView);
+@property (strong, nonatomic) void (^viewDidShowHandler)(UIView *alertView);
+@property (strong, nonatomic) void (^viewWillHideHandler)(UIView *alertView);
+@property (strong, nonatomic) void (^viewDidHideHandler)(UIView *alertView);
+
+// dismiss controller completed block
+@property (nonatomic, copy) void (^dismissComplete)(void);
 
 + (instancetype)alertControllerWithAlertView:(UIView *)alertView;
 

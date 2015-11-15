@@ -121,6 +121,42 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (_viewWillShowHandler) {
+        _viewWillShowHandler(_alertView);
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if (_viewDidShowHandler) {
+        _viewDidShowHandler(_alertView);
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    if (_viewWillHideHandler) {
+        _viewWillHideHandler(_alertView);
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    if (_viewDidHideHandler) {
+        _viewDidHideHandler(_alertView);
+    }
+}
+
 - (void)addBackgroundView
 {
     if (_backgroundView == nil) {
@@ -305,7 +341,7 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-    NSLog(@"%@ dealloc",NSStringFromClass([self class]));
+    //NSLog(@"%@ dealloc",NSStringFromClass([self class]));
 }
 
 @end

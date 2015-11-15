@@ -53,6 +53,27 @@
     
     // first way to show
     TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleAlert];
+    
+    [alertController setViewWillShowHandler:^(UIView *alertView) {
+        NSLog(@"ViewWillShow");
+    }];
+    
+    [alertController setViewDidShowHandler:^(UIView *alertView) {
+        NSLog(@"ViewDidShow");
+    }];
+    
+    [alertController setViewWillHideHandler:^(UIView *alertView) {
+        NSLog(@"ViewWillHide");
+    }];
+    
+    [alertController setViewDidHideHandler:^(UIView *alertView) {
+        NSLog(@"ViewDidHide");
+    }];
+    
+    [alertController setDismissComplete:^{
+        NSLog(@"DismissComplete");
+    }];
+    
     //alertController.alertViewOriginY = 60;
     [self presentViewController:alertController animated:YES completion:nil];
     

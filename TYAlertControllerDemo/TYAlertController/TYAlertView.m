@@ -393,9 +393,9 @@
     }
 }
 
-- (void)dealloc
-{
-    NSLog(@"%@ dealloc",NSStringFromClass([self class]));
-}
+//- (void)dealloc
+//{
+//    NSLog(@"%@ dealloc",NSStringFromClass([self class]));
+//}
 
 @end
