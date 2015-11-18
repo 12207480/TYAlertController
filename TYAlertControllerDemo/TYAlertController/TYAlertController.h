@@ -43,10 +43,10 @@ typedef NS_ENUM(NSInteger, TYAlertTransitionAnimation) {
 @property (nonatomic, assign) CGFloat actionSheetStyleEdging; // default 0
 
 // alertView lifecycle block
-@property (strong, nonatomic) void (^viewWillShowHandler)(UIView *alertView);
-@property (strong, nonatomic) void (^viewDidShowHandler)(UIView *alertView);
-@property (strong, nonatomic) void (^viewWillHideHandler)(UIView *alertView);
-@property (strong, nonatomic) void (^viewDidHideHandler)(UIView *alertView);
+@property (copy, nonatomic) void (^viewWillShowHandler)(UIView *alertView);
+@property (copy, nonatomic) void (^viewDidShowHandler)(UIView *alertView);
+@property (copy, nonatomic) void (^viewWillHideHandler)(UIView *alertView);
+@property (copy, nonatomic) void (^viewDidHideHandler)(UIView *alertView);
 
 // dismiss controller completed block
 @property (nonatomic, copy) void (^dismissComplete)(void);
