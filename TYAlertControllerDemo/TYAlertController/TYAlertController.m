@@ -319,16 +319,17 @@
 - (void)keyboardWillShow:(NSNotification*)notification{
     CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
-    CGFloat alertViewBottomEdge = CGRectGetHeight(self.view.frame) -  CGRectGetMaxY(_alertView.frame);
+    CGFloat alertViewBottomEdge = (CGRectGetHeight(self.view.frame) -  CGRectGetHeight(_alertView.frame))/2 - _alertViewCenterYOffset;
     CGFloat differ = CGRectGetHeight(keyboardRect) - alertViewBottomEdge;
     
-    if (differ > 0) {
+    if (differ >= 0) {
          _alertViewCenterYConstraint.constant = _alertViewCenterYOffset - differ;
         [UIView animateWithDuration:0.25 animations:^{
             [self.view layoutIfNeeded];
         }];
     }
 }
+
 
 - (void)keyboardWillHide:(NSNotification*)notification{
     
