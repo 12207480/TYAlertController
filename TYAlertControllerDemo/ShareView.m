@@ -11,7 +11,7 @@
 
 @implementation ShareView
 
-- (IBAction)cancleAction:(id)sender {
+- (IBAction)cancelAction:(id)sender {
     // hide view,or dismiss controller
     [self hideView];
 }

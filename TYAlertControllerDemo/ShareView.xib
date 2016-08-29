@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,7 +12,6 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIr-hc-gna">
                     <rect key="frame" x="38" y="66" width="50" height="66"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="titleEdgeInsets" minX="-56" minY="50" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="20"/>
@@ -24,14 +22,12 @@
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="分享到" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzK-K0-iW6">
                     <rect key="frame" x="123" y="22" width="54" height="18"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOF-Jx-1Jt">
                     <rect key="frame" x="125" y="66" width="50" height="66"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="titleEdgeInsets" minX="-56" minY="50" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="20"/>
@@ -42,12 +38,10 @@
                 </button>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGB-mJ-D1W">
                     <rect key="frame" x="20" y="30" width="95" height="1"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.80000000000000004" green="0.82745098039999998" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hEn-2i-BiU">
                     <rect key="frame" x="212" y="66" width="50" height="66"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="titleEdgeInsets" minX="-56" minY="50" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="20"/>
@@ -58,12 +52,10 @@
                 </button>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FuM-xA-mIh">
                     <rect key="frame" x="185" y="30" width="95" height="1"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.80000000000000004" green="0.82745098039999998" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kq9-16-RJg">
                     <rect key="frame" x="38" y="152" width="50" height="66"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="titleEdgeInsets" minX="-56" minY="50" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="20"/>
@@ -74,7 +66,6 @@
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mga-cK-Sh8">
                     <rect key="frame" x="212" y="152" width="50" height="66"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="titleEdgeInsets" minX="-56" minY="50" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="20"/>
@@ -85,17 +76,15 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bC-ZI-otZ">
                     <rect key="frame" x="128" y="234" width="44" height="44"/>
-                    <animations/>
                     <state key="normal" image="btn_share_del">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="cancleAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="RUH-5a-GpM"/>
+                        <action selector="cancelAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="RUH-5a-GpM"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99Q-2n-nhD">
                     <rect key="frame" x="125" y="152" width="50" height="66"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="titleEdgeInsets" minX="-56" minY="50" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="20"/>
@@ -105,7 +94,6 @@
                     </state>
                 </button>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

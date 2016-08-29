@@ -10,7 +10,7 @@
 
 typedef NS_ENUM(NSUInteger, TYAlertActionStyle) {
     TYAlertActionStyleDefault,
-    TYAlertActionStyleCancle,
+    TYAlertActionStyleCancel,
     TYAlertActionStyleDestructive,
 };
 
@@ -50,7 +50,7 @@ typedef NS_ENUM(NSUInteger, TYAlertActionStyle) {
 @property (nonatomic, assign) CGFloat buttonCornerRadius;
 @property (nonatomic, strong) UIFont *buttonFont;
 @property (nonatomic, strong) UIColor *buttonDefaultBgColor;
-@property (nonatomic, strong) UIColor *buttonCancleBgColor;
+@property (nonatomic, strong) UIColor *buttonCancelBgColor;
 @property (nonatomic, strong) UIColor *buttonDestructiveBgColor;
 
 // textField custom
