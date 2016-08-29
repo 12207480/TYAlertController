@@ -35,7 +35,7 @@ pod 'TYAlertController', '~> 1.1.6'
 @property (nonatomic, copy) void (^dismissComplete)(void);
 ```
 
-* show in controller (tow way)
+* show in controller (tow way)(recommend)
 ```objc
 TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"This is a message, the alert view containt text and textfiled. "];
     
