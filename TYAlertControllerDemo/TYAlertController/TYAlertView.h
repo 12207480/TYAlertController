@@ -30,6 +30,7 @@ typedef NS_ENUM(NSUInteger, TYAlertActionStyle) {
 @property (nonatomic, weak, readonly) UILabel *titleLable;
 @property (nonatomic, weak, readonly) UILabel *messageLabel;
 
+// alertView textfield array
 @property (nonatomic, strong, readonly) NSArray *textFieldArray;
 
 // default 280, if 0 don't add width constraint,
@@ -52,14 +53,14 @@ typedef NS_ENUM(NSUInteger, TYAlertActionStyle) {
 @property (nonatomic, strong) UIColor *buttonCancleBgColor;
 @property (nonatomic, strong) UIColor *buttonDestructiveBgColor;
 
-// textFeild custom
+// textField custom
 @property (nonatomic, strong) UIColor *textFieldBorderColor;
 @property (nonatomic, strong) UIColor *textFieldBackgroudColor;
 @property (nonatomic, strong) UIFont *textFieldFont;
-@property (nonatomic, assign) CGFloat textFeildHeight;
-@property (nonatomic, assign) CGFloat textFeildEdge;
-@property (nonatomic, assign) CGFloat textFeildorderWidth;
-@property (nonatomic, assign) CGFloat textFeildContentViewEdge;
+@property (nonatomic, assign) CGFloat textFieldHeight;
+@property (nonatomic, assign) CGFloat textFieldEdge;
+@property (nonatomic, assign) CGFloat textFieldorderWidth;
+@property (nonatomic, assign) CGFloat textFieldContentViewEdge;
 
 
 + (instancetype)alertViewWithTitle:(NSString *)title message:(NSString *)message;
