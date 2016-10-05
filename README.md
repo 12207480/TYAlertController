@@ -84,5 +84,4 @@ TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:
 
 ### Contact
 if you find bug，please pull reqeust me <br>
-if you have good idea，contact me, Email:122074809@qq.com
 
