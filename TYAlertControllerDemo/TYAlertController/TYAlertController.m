@@ -166,7 +166,7 @@
     }
     _backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view insertSubview:_backgroundView atIndex:0];
-    [self.view addConstraintToView:_backgroundView edageInset:UIEdgeInsetsZero];
+    [self.view addConstraintToView:_backgroundView edgeInset:UIEdgeInsetsZero];
 }
 
 - (void)setBackgroundView:(UIView *)backgroundView
@@ -176,7 +176,7 @@
     } else if (_backgroundView != backgroundView) {
         backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.view insertSubview:backgroundView aboveSubview:_backgroundView];
-        [self.view addConstraintToView:backgroundView edageInset:UIEdgeInsetsZero];
+        [self.view addConstraintToView:backgroundView edgeInset:UIEdgeInsetsZero];
         backgroundView.alpha = 0;
         [UIView animateWithDuration:0.3 animations:^{
             backgroundView.alpha = 1;
@@ -245,7 +245,7 @@
 {
     // width, height
     if (!CGSizeEqualToSize(_alertView.frame.size,CGSizeZero)) {
-        [_alertView addConstarintWidth:CGRectGetWidth(_alertView.frame) height:CGRectGetHeight(_alertView.frame)];
+        [_alertView addConstraintWidth:CGRectGetWidth(_alertView.frame) height:CGRectGetHeight(_alertView.frame)];
         
     }else {
         BOOL findAlertViewWidthConstraint = NO;
@@ -257,7 +257,7 @@
         }
         
         if (!findAlertViewWidthConstraint) {
-            [_alertView addConstarintWidth:CGRectGetWidth(self.view.frame)-2*_alertStyleEdging height:0];
+            [_alertView addConstraintWidth:CGRectGetWidth(self.view.frame)-2*_alertStyleEdging height:0];
         }
     }
 }
@@ -267,7 +267,7 @@
 - (void)layoutAlertStyleView
 {
     // center X
-    [self.view addConstraintCenterXToView:_alertView CenterYToView:nil];
+    [self.view addConstraintCenterXToView:_alertView centerYToView:nil];
     
     [self configureAlertViewWidth];
     
@@ -294,11 +294,11 @@
     }
     
     // add edge constraint
-    [self.view addConstarintWithView:_alertView topView:nil leftView:self.view bottomView:self.view rightView:self.view edageInset:UIEdgeInsetsMake(0, _actionSheetStyleEdging, 0, -_actionSheetStyleEdging)];
+    [self.view addConstraintWithView:_alertView topView:nil leftView:self.view bottomView:self.view rightView:self.view edgeInset:UIEdgeInsetsMake(0, _actionSheetStyleEdging, 0, -_actionSheetStyleEdging)];
     
     if (CGRectGetHeight(_alertView.frame) > 0) {
         // height
-        [_alertView addConstarintWidth:0 height:CGRectGetHeight(_alertView.frame)];
+        [_alertView addConstraintWidth:0 height:CGRectGetHeight(_alertView.frame)];
     }
 }
 

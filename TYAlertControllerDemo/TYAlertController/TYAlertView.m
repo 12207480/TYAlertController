@@ -279,26 +279,26 @@
         return;
     }
     if (_alertViewWidth) {
-        [self addConstarintWidth:_alertViewWidth height:0];
+        [self addConstraintWidth:_alertViewWidth height:0];
     }
     
     // textContentView
     _textContentView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    [self addConstarintWithView:_textContentView topView:self leftView:self bottomView:nil rightView:self edageInset:UIEdgeInsetsMake(_contentViewSpace, _textLabelContentViewEdge, 0, -_textLabelContentViewEdge)];
+    [self addConstraintWithView:_textContentView topView:self leftView:self bottomView:nil rightView:self edgeInset:UIEdgeInsetsMake(_contentViewSpace, _textLabelContentViewEdge, 0, -_textLabelContentViewEdge)];
     
     // textFieldContentView
     _textFieldContentView.translatesAutoresizingMaskIntoConstraints = NO;
-    _textFieldTopConstraint = [self addConstarintWithTopView:_textContentView toBottomView:_textFieldContentView constarint:0];
+    _textFieldTopConstraint = [self addConstraintWithTopView:_textContentView toBottomView:_textFieldContentView constant:0];
     
-    [self addConstarintWithView:_textFieldContentView topView:nil leftView:self bottomView:nil rightView:self edageInset:UIEdgeInsetsMake(0, _textFieldContentViewEdge, 0, -_textFieldContentViewEdge)];
+    [self addConstraintWithView:_textFieldContentView topView:nil leftView:self bottomView:nil rightView:self edgeInset:UIEdgeInsetsMake(0, _textFieldContentViewEdge, 0, -_textFieldContentViewEdge)];
     
     // buttonContentView
     _buttonContentView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    _buttonTopConstraint = [self addConstarintWithTopView:_textFieldContentView toBottomView:_buttonContentView constarint:0];
+    _buttonTopConstraint = [self addConstraintWithTopView:_textFieldContentView toBottomView:_buttonContentView constant:0];
     
-    [self addConstarintWithView:_buttonContentView topView:nil leftView:self bottomView:self rightView:self edageInset:UIEdgeInsetsMake(0, _buttonContentViewEdge, -_contentViewSpace, -_buttonContentViewEdge)];
+    [self addConstraintWithView:_buttonContentView topView:nil leftView:self bottomView:self rightView:self edgeInset:UIEdgeInsetsMake(0, _buttonContentViewEdge, -_contentViewSpace, -_buttonContentViewEdge)];
 }
 
 - (void)layoutTextLabels
@@ -309,12 +309,12 @@
     }
     // title
     _titleLable.translatesAutoresizingMaskIntoConstraints = NO;
-    [_textContentView addConstarintWithView:_titleLable topView:_textContentView leftView:_textContentView bottomView:nil rightView:_textContentView edageInset:UIEdgeInsetsZero];
+    [_textContentView addConstraintWithView:_titleLable topView:_textContentView leftView:_textContentView bottomView:nil rightView:_textContentView edgeInset:UIEdgeInsetsZero];
     
     // message
     _messageLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [_textContentView addConstarintWithTopView:_titleLable toBottomView:_messageLabel constarint:_textLabelSpace];
-    [_textContentView addConstarintWithView:_messageLabel topView:nil leftView:_textContentView bottomView:_textContentView rightView:_textContentView edageInset:UIEdgeInsetsZero];
+    [_textContentView addConstraintWithTopView:_titleLable toBottomView:_messageLabel constant:_textLabelSpace];
+    [_textContentView addConstraintWithView:_messageLabel topView:nil leftView:_textContentView bottomView:_textContentView rightView:_textContentView edgeInset:UIEdgeInsetsZero];
 }
 
 - (void)layoutButtons
@@ -322,31 +322,31 @@
     UIButton *button = _buttons.lastObject;
     if (_buttons.count == 1) {
         _buttonTopConstraint.constant = -_contentViewSpace;
-        [_buttonContentView addConstraintToView:button edageInset:UIEdgeInsetsZero];
-        [button addConstarintWidth:0 height:_buttonHeight];
+        [_buttonContentView addConstraintToView:button edgeInset:UIEdgeInsetsZero];
+        [button addConstraintWidth:0 height:_buttonHeight];
     }else if (_buttons.count == 2) {
         UIButton *firstButton = _buttons.firstObject;
-        [_buttonContentView removeConstraintWithView:firstButton attribte:NSLayoutAttributeRight];
-        [_buttonContentView addConstarintWithView:button topView:_buttonContentView leftView:nil bottomView:nil rightView:_buttonContentView edageInset:UIEdgeInsetsZero];
-        [_buttonContentView addConstarintWithLeftView:firstButton toRightView:button constarint:_buttonSpace];
-        [_buttonContentView addConstarintEqualWithView:button widthToView:firstButton heightToView:firstButton];
+        [_buttonContentView removeConstraintWithView:firstButton attribute:NSLayoutAttributeRight];
+        [_buttonContentView addConstraintWithView:button topView:_buttonContentView leftView:nil bottomView:nil rightView:_buttonContentView edgeInset:UIEdgeInsetsZero];
+        [_buttonContentView addConstraintWithLeftView:firstButton toRightView:button constant:_buttonSpace];
+        [_buttonContentView addConstraintEqualWithView:button widthToView:firstButton heightToView:firstButton];
     }else {
         if (_buttons.count == 3) {
             UIButton *firstBtn = _buttons[0];
             UIButton *secondBtn = _buttons[1];
-            [_buttonContentView removeConstraintWithView:firstBtn attribte:NSLayoutAttributeRight];
-            [_buttonContentView removeConstraintWithView:firstBtn attribte:NSLayoutAttributeBottom];
-            [_buttonContentView removeConstraintWithView:secondBtn attribte:NSLayoutAttributeTop];
-            [_buttonContentView addConstarintWithView:firstBtn topView:nil leftView:nil bottomView:0 rightView:_buttonContentView edageInset:UIEdgeInsetsZero];
-            [_buttonContentView addConstarintWithTopView:firstBtn toBottomView:secondBtn constarint:_buttonSpace];
+            [_buttonContentView removeConstraintWithView:firstBtn attribute:NSLayoutAttributeRight];
+            [_buttonContentView removeConstraintWithView:firstBtn attribute:NSLayoutAttributeBottom];
+            [_buttonContentView removeConstraintWithView:secondBtn attribute:NSLayoutAttributeTop];
+            [_buttonContentView addConstraintWithView:firstBtn topView:nil leftView:nil bottomView:0 rightView:_buttonContentView edgeInset:UIEdgeInsetsZero];
+            [_buttonContentView addConstraintWithTopView:firstBtn toBottomView:secondBtn constant:_buttonSpace];
             
         }
         
         UIButton *lastSecondBtn = _buttons[_buttons.count-2];
-        [_buttonContentView removeConstraintWithView:lastSecondBtn attribte:NSLayoutAttributeBottom];
-        [_buttonContentView addConstarintWithTopView:lastSecondBtn toBottomView:button constarint:_buttonSpace];
-        [_buttonContentView addConstarintWithView:button topView:nil leftView:_buttonContentView bottomView:_buttonContentView rightView:_buttonContentView edageInset:UIEdgeInsetsZero];
-        [_buttonContentView addConstarintEqualWithView:button widthToView:nil heightToView:lastSecondBtn];
+        [_buttonContentView removeConstraintWithView:lastSecondBtn attribute:NSLayoutAttributeBottom];
+        [_buttonContentView addConstraintWithTopView:lastSecondBtn toBottomView:button constant:_buttonSpace];
+        [_buttonContentView addConstraintWithView:button topView:nil leftView:_buttonContentView bottomView:_buttonContentView rightView:_buttonContentView edgeInset:UIEdgeInsetsZero];
+        [_buttonContentView addConstraintEqualWithView:button widthToView:nil heightToView:lastSecondBtn];
     }
 }
 
@@ -362,21 +362,21 @@
         _textFieldContentView.layer.borderWidth = _textFieldorderWidth;
         _textFieldContentView.layer.borderColor = _textFieldBorderColor.CGColor;
         _textFieldTopConstraint.constant = -_contentViewSpace;
-        [_textFieldContentView addConstraintToView:textField edageInset:UIEdgeInsetsMake(_textFieldorderWidth, _textFieldEdge, -_textFieldorderWidth, -_textFieldEdge)];
-        [textField addConstarintWidth:0 height:_textFieldHeight];
+        [_textFieldContentView addConstraintToView:textField edgeInset:UIEdgeInsetsMake(_textFieldorderWidth, _textFieldEdge, -_textFieldorderWidth, -_textFieldEdge)];
+        [textField addConstraintWidth:0 height:_textFieldHeight];
     }else {
         // textField
         UITextField *lastSecondtextField = _textFields[_textFields.count - 2];
-        [_textFieldContentView removeConstraintWithView:lastSecondtextField attribte:NSLayoutAttributeBottom];
-        [_textFieldContentView addConstarintWithTopView:lastSecondtextField toBottomView:textField constarint:_textFieldorderWidth];
-        [_textFieldContentView addConstarintWithView:textField topView:nil leftView:_textFieldContentView bottomView:_textFieldContentView rightView:_textFieldContentView edageInset:UIEdgeInsetsMake(0, _textFieldEdge, -_textFieldorderWidth, -_textFieldEdge)];
-        [_textFieldContentView addConstarintEqualWithView:textField widthToView:nil heightToView:lastSecondtextField];
+        [_textFieldContentView removeConstraintWithView:lastSecondtextField attribute:NSLayoutAttributeBottom];
+        [_textFieldContentView addConstraintWithTopView:lastSecondtextField toBottomView:textField constant:_textFieldorderWidth];
+        [_textFieldContentView addConstraintWithView:textField topView:nil leftView:_textFieldContentView bottomView:_textFieldContentView rightView:_textFieldContentView edgeInset:UIEdgeInsetsMake(0, _textFieldEdge, -_textFieldorderWidth, -_textFieldEdge)];
+        [_textFieldContentView addConstraintEqualWithView:textField widthToView:nil heightToView:lastSecondtextField];
         
         // separateview
         UIView *separateView = _textFieldSeparateViews[_textFields.count - 2];
-        [_textFieldContentView addConstarintWithView:separateView topView:nil leftView:_textFieldContentView bottomView:nil rightView:_textFieldContentView edageInset:UIEdgeInsetsZero];
-        [_textFieldContentView addConstarintWithTopView:separateView toBottomView:textField constarint:0];
-        [separateView addConstarintWidth:0 height:_textFieldorderWidth];
+        [_textFieldContentView addConstraintWithView:separateView topView:nil leftView:_textFieldContentView bottomView:nil rightView:_textFieldContentView edgeInset:UIEdgeInsetsZero];
+        [_textFieldContentView addConstraintWithTopView:separateView toBottomView:textField constant:0];
+        [separateView addConstraintWidth:0 height:_textFieldorderWidth];
     }
 }
 
