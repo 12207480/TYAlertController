@@ -314,7 +314,7 @@
     [self dismissViewControllerAnimated:YES];
 }
 
-#pragma mark - notifycation
+#pragma mark - notification
 
 - (void)keyboardWillShow:(NSNotification*)notification{
     CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
