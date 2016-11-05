@@ -130,7 +130,7 @@
     _buttonHeight = KButtonHeight;
     _buttonSpace = kButtonSpace;
     _buttonContentViewEdge = kContentViewEdge;
-    _buttonContentViewTop = 0;
+    _buttonContentViewTop = kContentViewSpace;
     _buttonCornerRadius = 4.0;
     _buttonFont = [UIFont fontWithName:@"HelveticaNeue" size:18];;
     _buttonDefaultBgColor = [UIColor colorWithRed:52/255.0 green:152/255.0 blue:219/255.0 alpha:1];
@@ -322,7 +322,7 @@
 {
     UIButton *button = _buttons.lastObject;
     if (_buttons.count == 1) {
-        _buttonTopConstraint.constant = -_contentViewSpace;
+        _buttonTopConstraint.constant = -_buttonContentViewTop;
         [_buttonContentView addConstraintToView:button edgeInset:UIEdgeInsetsZero];
         [button addConstraintWidth:0 height:_buttonHeight];
     }else if (_buttons.count == 2) {
