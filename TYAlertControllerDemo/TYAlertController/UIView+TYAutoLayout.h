@@ -10,26 +10,26 @@
 
 @interface UIView (TYAutoLayout)
 
-- (void)addConstraintToView:(UIView *)view edageInset:(UIEdgeInsets)edageInset;
+- (void)addConstraintToView:(UIView *)view edgeInset:(UIEdgeInsets)edgeInset;
 
-- (void)addConstarintWithView:(UIView *)view topView:(UIView *)topView leftView:(UIView *)leftView
-                   bottomView:(UIView *)bottomView rightView:(UIView *)rightView edageInset:(UIEdgeInsets)edageInset;
+- (void)addConstraintWithView:(UIView *)view topView:(UIView *)topView leftView:(UIView *)leftView
+                   bottomView:(UIView *)bottomView rightView:(UIView *)rightView edgeInset:(UIEdgeInsets)edgeInset;
 
-- (void)addConstarintWithLeftView:(UIView *)leftView toRightView:(UIView *)rightView constarint:(CGFloat)constarint;
+- (void)addConstraintWithLeftView:(UIView *)leftView toRightView:(UIView *)rightView constant:(CGFloat)constant;
 
-- (NSLayoutConstraint *)addConstarintWithTopView:(UIView *)topView toBottomView:(UIView *)bottomView constarint:(CGFloat)constarint;
+- (NSLayoutConstraint *)addConstraintWithTopView:(UIView *)topView toBottomView:(UIView *)bottomView constant:(CGFloat)constant;
 
-- (void)addConstarintWidth:(CGFloat)width height:(CGFloat)height;
+- (void)addConstraintWidth:(CGFloat)width height:(CGFloat)height;
 
-- (void)addConstarintEqualWithView:(UIView *)view widthToView:(UIView *)wView heightToView:(UIView *)hView;
+- (void)addConstraintEqualWithView:(UIView *)view widthToView:(UIView *)wView heightToView:(UIView *)hView;
 
 - (NSLayoutConstraint *)addConstraintCenterYToView:(UIView *)yView constant:(CGFloat)constant;
 
-- (void)addConstraintCenterXToView:(UIView *)xView CenterYToView:(UIView *)yView;
+- (void)addConstraintCenterXToView:(UIView *)xView centerYToView:(UIView *)yView;
 
 - (void)removeConstraintWithAttribte:(NSLayoutAttribute)attr;
 
-- (void)removeConstraintWithView:(UIView *)view attribte:(NSLayoutAttribute)attr;
+- (void)removeConstraintWithView:(UIView *)view attribute:(NSLayoutAttribute)attr;
 
 - (void)removeAllConstraints;
 

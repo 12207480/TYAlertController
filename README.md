@@ -3,7 +3,7 @@ Powerful, Easy to use alertView or popupView on controller and window, support b
 
 ## CocoaPods
 ```
-pod 'TYAlertController', '~> 1.1.6'
+pod 'TYAlertController'
 ```
 
 ### ScreenShot
@@ -84,5 +84,4 @@ TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:
 
 ### Contact
 if you find bug，please pull reqeust me <br>
-if you have good idea，contact me, Email:122074809@qq.com
 

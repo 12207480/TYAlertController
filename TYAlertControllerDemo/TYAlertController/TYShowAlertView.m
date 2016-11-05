@@ -84,7 +84,7 @@
     }
     [self insertSubview:_backgroundView atIndex:0];
     _backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addConstraintToView:_backgroundView edageInset:UIEdgeInsetsZero];
+    [self addConstraintToView:_backgroundView edgeInset:UIEdgeInsetsZero];
 }
 
 - (void)setBackgroundView:(UIView *)backgroundView
@@ -106,7 +106,7 @@
 {
     if (self.superview) {
         self.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.superview addConstraintToView:self edageInset:UIEdgeInsetsZero];
+        [self.superview addConstraintToView:self edgeInset:UIEdgeInsetsZero];
         [self layoutAlertView];
     }
 }
@@ -115,11 +115,11 @@
 {
     _alertView.translatesAutoresizingMaskIntoConstraints = NO;
     // center X
-    [self addConstraintCenterXToView:_alertView CenterYToView:nil];
+    [self addConstraintCenterXToView:_alertView centerYToView:nil];
     
     // width, height
     if (!CGSizeEqualToSize(_alertView.frame.size,CGSizeZero)) {
-        [_alertView addConstarintWidth:CGRectGetWidth(_alertView.frame) height:CGRectGetHeight(_alertView.frame)];
+        [_alertView addConstraintWidth:CGRectGetWidth(_alertView.frame) height:CGRectGetHeight(_alertView.frame)];
         
     }else {
         BOOL findAlertViewWidthConstraint = NO;
@@ -131,7 +131,7 @@
         }
         
         if (!findAlertViewWidthConstraint) {
-            [_alertView addConstarintWidth:CGRectGetWidth(self.superview.frame)-2*_alertViewEdging height:0];
+            [_alertView addConstraintWidth:CGRectGetWidth(self.superview.frame)-2*_alertViewEdging height:0];
         }
     }
     
