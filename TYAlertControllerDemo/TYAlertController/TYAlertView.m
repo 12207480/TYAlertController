@@ -130,6 +130,7 @@
     _buttonHeight = KButtonHeight;
     _buttonSpace = kButtonSpace;
     _buttonContentViewEdge = kContentViewEdge;
+    _buttonContentViewTop = 0;
     _buttonCornerRadius = 4.0;
     _buttonFont = [UIFont fontWithName:@"HelveticaNeue" size:18];;
     _buttonDefaultBgColor = [UIColor colorWithRed:52/255.0 green:152/255.0 blue:219/255.0 alpha:1];
@@ -296,7 +297,7 @@
     // buttonContentView
     _buttonContentView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    _buttonTopConstraint = [self addConstraintWithTopView:_textFieldContentView toBottomView:_buttonContentView constant:0];
+    _buttonTopConstraint = [self addConstraintWithTopView:_textFieldContentView toBottomView:_buttonContentView constant:_buttonContentViewTop];
     
     [self addConstraintWithView:_buttonContentView topView:nil leftView:self bottomView:self rightView:self edgeInset:UIEdgeInsetsMake(0, _buttonContentViewEdge, -_contentViewSpace, -_buttonContentViewEdge)];
 }
