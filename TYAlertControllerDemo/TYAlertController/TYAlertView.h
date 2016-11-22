@@ -60,7 +60,7 @@ typedef NS_ENUM(NSUInteger, TYAlertActionStyle) {
 @property (nonatomic, strong) UIFont *textFieldFont;
 @property (nonatomic, assign) CGFloat textFieldHeight;
 @property (nonatomic, assign) CGFloat textFieldEdge;
-@property (nonatomic, assign) CGFloat textFieldorderWidth;
+@property (nonatomic, assign) CGFloat textFieldBorderWidth;
 @property (nonatomic, assign) CGFloat textFieldContentViewEdge;
 
 

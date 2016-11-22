@@ -314,16 +314,26 @@
     [self dismissViewControllerAnimated:YES];
 }
 
-#pragma mark - notifycation
+#pragma mark - notification
 
-- (void)keyboardWillShow:(NSNotification*)notification{
+- (void)keyboardWillShow:(NSNotification*)notification
+{
     CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
     CGFloat alertViewBottomEdge = (CGRectGetHeight(self.view.frame) -  CGRectGetHeight(_alertView.frame))/2 - _alertViewCenterYOffset;
+    
+    //当开启热点时，向下偏移20px
+    //修复键盘遮挡问题
+    CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
     CGFloat differ = CGRectGetHeight(keyboardRect) - alertViewBottomEdge;
+
+    //修复：输入框获取焦点时，会重复刷新，导致输入框文章偏移一下
+    if (_alertViewCenterYConstraint.constant == -differ -statusBarHeight) {
+        return;
+    }
     
     if (differ >= 0) {
-         _alertViewCenterYConstraint.constant = _alertViewCenterYOffset - differ;
+         _alertViewCenterYConstraint.constant = _alertViewCenterYOffset - differ - statusBarHeight;
         [UIView animateWithDuration:0.25 animations:^{
             [self.view layoutIfNeeded];
         }];
@@ -331,8 +341,8 @@
 }
 
 
-- (void)keyboardWillHide:(NSNotification*)notification{
-    
+- (void)keyboardWillHide:(NSNotification*)notification
+{
     _alertViewCenterYConstraint.constant = _alertViewCenterYOffset;
     [UIView animateWithDuration:0.25 animations:^{
         [self.view layoutIfNeeded];
@@ -348,7 +358,6 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-    //NSLog(@"%@ dealloc",NSStringFromClass([self class]));
 }
 
 @end
