@@ -120,6 +120,7 @@
 
 - (void)configureProperty
 {
+    _clickedAutoHide = YES;
     self.backgroundColor = [UIColor whiteColor];
     _alertViewWidth = kAlertViewWidth;
     _contentViewSpace = kContentViewSpace;
@@ -387,7 +388,9 @@
 {
     TYAlertAction *action = _actions[button.tag - kButtonTagOffset];
     
-    [self hideView];
+    if (_clickedAutoHide) {
+        [self hideView];
+    }
     
     if (action.handler) {
         action.handler(action);

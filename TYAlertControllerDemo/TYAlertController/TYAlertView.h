@@ -63,6 +63,8 @@ typedef NS_ENUM(NSUInteger, TYAlertActionStyle) {
 @property (nonatomic, assign) CGFloat textFieldBorderWidth;
 @property (nonatomic, assign) CGFloat textFieldContentViewEdge;
 
+@property (nonatomic, assign) BOOL clickedAutoHide;
+
 
 + (instancetype)alertViewWithTitle:(NSString *)title message:(NSString *)message;
 
