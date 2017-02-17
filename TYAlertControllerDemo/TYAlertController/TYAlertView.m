@@ -102,7 +102,7 @@
 
 - (instancetype)initWithTitle:(NSString *)title message:(NSString *)message
 {
-    if (self = [super init]) {
+    if (self = [self init]) {
         
         _titleLable.text = title;
         _messageLabel.text = message;
