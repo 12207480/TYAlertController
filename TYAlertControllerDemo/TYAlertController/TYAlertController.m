@@ -191,7 +191,8 @@
 - (void)addSingleTapGesture
 {
     self.view.userInteractionEnabled = YES;
-    
+    _backgroundView.userInteractionEnabled = YES;
+
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
     singleTap.enabled = _backgoundTapDismissEnable;
   
