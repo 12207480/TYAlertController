@@ -25,7 +25,7 @@
         case TYAlertTransitionAnimationDropDown:
             return [TYAlertDropDownAnimation alertAnimationIsPresenting:YES];
         case TYAlertTransitionAnimationCustom:
-            return [self.class alertAnimationIsPresenting:YES preferredStyle:self.preferredStyle];
+            return [self.transitionAnimationClass alertAnimationIsPresenting:YES preferredStyle:self.preferredStyle];
         default:
             return nil;
     }
@@ -41,7 +41,7 @@
         case TYAlertTransitionAnimationDropDown:
             return [TYAlertDropDownAnimation alertAnimationIsPresenting:NO];
         case TYAlertTransitionAnimationCustom:
-            return [self.class alertAnimationIsPresenting:NO preferredStyle:self.preferredStyle];
+            return [self.transitionAnimationClass alertAnimationIsPresenting:NO preferredStyle:self.preferredStyle];
         default:
             return nil;
     }
