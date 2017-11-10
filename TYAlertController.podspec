@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 # 名称 使用的时候pod search [name]
 s.name = "TYAlertController"
 # 代码库的版本
-s.version = "1.1.8"
+s.version = "1.2.0"
 # 简介
 s.summary = "Powerful, Easy to use alertview or popup view on controller and window, support blur effects,custom view and animation."
 # 主页
