@@ -15,6 +15,10 @@
 #import "SettingModelView.h"
 #import "ShareView.h"
 
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kCurrentWindowCenter [UIApplication sharedApplication].keyWindow.center
+
 @interface ViewController ()
 @end
 
@@ -158,7 +162,7 @@
     }]];
     
     // first way to show ,use UIView Category
-    [alertView showInWindowWithOriginY:200 backgoundTapDismissEnable:YES];
+    [alertView showInWindowWithCenter:kCurrentWindowCenter backgoundTapDismissEnable:YES];
     
     // second way to show
     //[TYShowAlertView showAlertViewWithView:alertView originY:200 backgoundTapDismissEnable:YES];
@@ -168,7 +172,7 @@
     ShareView *shareView = [ShareView createViewFromNib];
 
     // use UIView Category
-    [shareView showInWindow];
+    [shareView showInWindowWithCenter:CGPointMake(kScreenWidth / 2.0, 380)];
 }
 
 - (void)didReceiveMemoryWarning {

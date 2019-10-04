@@ -285,7 +285,7 @@
 				TargetAttributes = {
 					D358541D1B9532D700B5FA1F = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = ZW52Q3KXX4;
+						DevelopmentTeam = YVL7699HA5;
 					};
 					D35854361B9532D700B5FA1F = {
 						CreatedOnToolsVersion = 6.4;
@@ -298,6 +298,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -488,6 +489,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YVL7699HA5;
 				INFOPLIST_FILE = TYAlertControllerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
