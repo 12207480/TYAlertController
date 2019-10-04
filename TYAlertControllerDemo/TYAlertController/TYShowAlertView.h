@@ -15,19 +15,22 @@
 
 @property (nonatomic, assign) BOOL backgoundTapDismissEnable;  // default NO
 
+
 /** 2019-10-04 12:13:56
     取值优先级为 ( 数字越小, 优先级越高 )
-    1. 主动赋值了alertViewWidth或alertViewHeight属性,则以_alertViewWidth为准
-    2. alertView.size != {0 , 0} , 则以 alertView.size 为准
-    3. superView.width - 2 * 15
+    1. NSLayoutAttributeWidth, 如果有宽度layout,则以layout为准
+    2. 主动赋值了alertViewWidth,则以_alertViewWidth为准
+    3. alertView.size != {0 , 0} , 则以 alertView.size 为准
+    4. superView.width - 2 * 15
  */
 @property (nonatomic, assign) CGFloat alertViewWidth;
 
 /** 2019-10-04 12:22:41
    取值优先级为 ( 数字越小, 优先级越高 )
-   1. 主动赋值了alertViewWidth或alertViewHeight属性,则以_alertViewHeight为准
-   2. alertView.size != {0 , 0} , 则以 alertView.size 为准
-   3. 200
+   1. NSLayoutAttributeHeight, 如果有宽度layout,则以layout为准
+   2. 主动赋值了alertViewHeight属性,则以_alertViewHeight为准
+   3. alertView.size != {0 , 0} , 则以 alertView.size 为准
+   4. 200
 */
 @property (nonatomic, assign) CGFloat alertViewHeight;
 

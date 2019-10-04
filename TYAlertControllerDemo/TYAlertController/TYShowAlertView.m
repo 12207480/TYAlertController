@@ -114,50 +114,50 @@
 {
     _alertView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    // width, height
-    if (!CGSizeEqualToSize(_alertView.frame.size,CGSizeZero)) {
-        /**2019-10-04 12:10:15 如果没有人为设置_alertViewCenter, 则取frame的对应的center*/
-        if (CGPointEqualToPoint(_alertViewCenter, CGPointZero)) {
-            _alertViewCenter = CGPointMake(CGRectGetMidX(_alertView.frame), CGRectGetMidY(_alertView.frame));
-        }
-        
-        /**2019-10-04 12:10:15 如果没有人为设置_alertViewWidth或者_alertViewHeight, 则从frame中取*/
-        if (!(_alertViewWidth || _alertViewHeight)) {
-            _alertViewWidth = _alertView.frame.size.width;
-            _alertViewHeight = _alertView.frame.size.height;
-        }
-
-        [_alertView addConstraintWidth:_alertViewWidth height:_alertViewHeight];
-    }else {
-        BOOL findAlertViewWidthConstraint = NO;
-        BOOL findAlertViewHeightConstraint = NO;
-        for (NSLayoutConstraint *constraint in _alertView.constraints) {
-            if (constraint.firstAttribute == NSLayoutAttributeWidth) {
-                findAlertViewWidthConstraint = YES;
-            }else if (constraint.firstAttribute == NSLayoutAttributeHeight){
-                findAlertViewHeightConstraint = YES;
-            }
-        }
-        
-        if (!findAlertViewWidthConstraint) {
-            if (!(_alertViewWidth || _alertViewHeight)) {
-                _alertViewWidth = CGRectGetWidth(self.superview.frame)-2*15;
-            }
-            [_alertView addConstraintWidth:_alertViewWidth height:0];
-        }
-        
-        if (!findAlertViewHeightConstraint) {
-            if (!(_alertViewWidth || _alertViewHeight)) {
-                _alertViewHeight = 200;
-            }
-             [_alertView addConstraintWidth:0 height:_alertViewHeight];
-         }
+    BOOL findAlertViewWidthConstraint = NO;
+    BOOL findAlertViewHeightConstraint = NO;
+    BOOL hasSetFrame = !CGSizeEqualToSize(_alertView.frame.size,CGSizeZero);
+    
+    /**2019-10-04 12:10:15 如果没有人为设置_alertViewCenter, 则取frame的对应的center*/
+    if (CGPointEqualToPoint(_alertViewCenter, CGPointZero) && hasSetFrame) {
+        _alertViewCenter = CGPointMake(CGRectGetMidX(_alertView.frame), CGRectGetMidY(_alertView.frame));
     }
     
-    /**2019-10-04 12:11:52 center X & center Y*/
+    /**2019-10-04 12:11:52 alertViewCenter*/
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_alertView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:-_alertViewCenter.x]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual
                                                         toItem:_alertView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:-_alertViewCenter.y]];
+
+    /**2019-10-04 13:17:47 alertViewWidth & _alertViewHeight*/
+    for (NSLayoutConstraint *constraint in _alertView.constraints) {
+        if (constraint.firstAttribute == NSLayoutAttributeWidth) {
+            findAlertViewWidthConstraint = YES;
+            _alertViewWidth = constraint.constant;
+        }else if (constraint.firstAttribute == NSLayoutAttributeHeight){
+            findAlertViewHeightConstraint = YES;
+            _alertViewHeight = constraint.constant;
+        }
+    }
+    
+    if (!findAlertViewWidthConstraint && !_alertViewWidth) {
+        /**2019-10-04 12:10:15 如果没有人为设置_alertViewWidth, 则从frame中取*/
+        if (hasSetFrame) {
+            _alertViewWidth = _alertView.frame.size.width;
+        }else{
+            _alertViewWidth = CGRectGetWidth(self.superview.frame)-2*15;
+        }
+        [_alertView addConstraintWidth:_alertViewWidth height:0];
+    }
+    
+    if (!findAlertViewHeightConstraint && !_alertViewHeight) {
+        /**2019-10-04 12:10:15 如果没有人为设置_alertViewHeight, default:200*/
+        if (hasSetFrame) {
+            _alertViewHeight = _alertView.frame.size.height;
+        }else{
+            _alertViewWidth = 200;
+        }
+        [_alertView addConstraintWidth:0 height:_alertViewHeight];
+     }
 }
 
 #pragma mark - add Gesture
