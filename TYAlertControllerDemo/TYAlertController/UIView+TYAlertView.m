@@ -47,17 +47,17 @@
     [TYShowAlertView showAlertViewWithView:self backgoundTapDismissEnable:backgoundTapDismissEnable];
 }
 
-- (void)showInWindowWithOriginY:(CGFloat)OriginY
+- (void)showInWindowWithCenter:(CGPoint)center
 {
-    [self showInWindowWithOriginY:OriginY backgoundTapDismissEnable:NO];
+    [self showInWindowWithCenter:center backgoundTapDismissEnable:NO];
 }
 
-- (void)showInWindowWithOriginY:(CGFloat)OriginY backgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable
+- (void)showInWindowWithCenter:(CGPoint)center backgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable
 {
     if (self.superview) {
         [self removeFromSuperview];
     }
-    [TYShowAlertView showAlertViewWithView:self originY:OriginY backgoundTapDismissEnable:backgoundTapDismissEnable];
+    [TYShowAlertView showAlertViewWithView:self center:center backgoundTapDismissEnable:backgoundTapDismissEnable];
 }
 
 - (void)hideInWindow

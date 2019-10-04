@@ -38,9 +38,9 @@
 // backgoundTapDismissEnable default NO
 - (void)showInWindowWithBackgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable;
 
-- (void)showInWindowWithOriginY:(CGFloat)OriginY;
+- (void)showInWindowWithCenter:(CGPoint)center;
 
-- (void)showInWindowWithOriginY:(CGFloat)OriginY backgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable;
+- (void)showInWindowWithCenter:(CGPoint)center backgoundTapDismissEnable:(BOOL)backgoundTapDismissEnable;
 
 
 #pragma mark - hide
